@@ -669,3 +669,8 @@ section.section.section-dark.legal-bottom-cta {
    `isolate` shields the digits from surrounding Arabic without changing the paragraph's direction. */
 .num,bdi.num,.legal-index,a[href^="tel:"]{direction:ltr;unicode-bidi:isolate}
 .num{white-space:nowrap}
+
+
+section.section.section-dark {
+    background: transparent;
+}
