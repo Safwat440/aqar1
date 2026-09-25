@@ -1,0 +1,26 @@
+/* =========================================================
+   Arabic (RTL) language-specific rules
+   Loaded together with main.css when the site is in Arabic.
+   ========================================================= */
+:root{
+  --font-heading:'Cairo','Tajawal',sans-serif;
+  --font-body:'IBM Plex Sans Arabic','Tajawal',sans-serif;
+}
+
+body{line-height:1.9;letter-spacing:0}
+
+h1,h2,h3,h4{letter-spacing:0;line-height:1.4}
+
+.eyebrow{letter-spacing:0}
+
+/* Arabic numerals/labels read more comfortably a touch larger in UI chrome */
+.badge,.tab,.nav-link{font-size:.92rem}
+
+/* Slightly roomier line-height for long-form Arabic paragraphs */
+.lede,p{line-height:1.9}
+
+/* Arabic display digits in stats/countdown look better with tabular spacing */
+.stat b,.countdown b{font-variant-numeric:tabular-nums}
+.carousel-controls {
+   direction: ltr;
+}

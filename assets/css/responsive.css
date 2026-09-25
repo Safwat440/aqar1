@@ -1,0 +1,137 @@
+/* =========================================================
+   Responsive breakpoint system
+   Large Desktop ≥1440 (default/base) · Desktop 1280–1439 · Laptop 1024–1279
+   Tablet 768–1023 · Small Tablet 576–767 · Mobile ≤575
+   ========================================================= */
+
+/* ----- Desktop (≤1439px): tighten container slightly ----- */
+@media (max-width:1439px){
+  :root{--container-width:1140px}
+}
+
+/* ----- Laptop (≤1279px) ----- */
+@media (max-width:1279px){
+  :root{--container-width:1040px;--section-spacing:84px}
+  .grid-4{grid-template-columns:repeat(3,1fr)}
+  .check-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ----- Tablet (≤1023px) ----- */
+@media (max-width:1023px){
+  :root{--section-spacing:72px;--section-spacing-sm:48px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .process{grid-template-columns:repeat(2,1fr)}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .stats-strip{grid-template-columns:repeat(3,1fr)}
+  .filter-bar{grid-template-columns:repeat(2,1fr)}
+  .split{gap:36px}
+  .hero{padding-block:104px 64px}
+}
+
+/* ----- Small tablet / mobile nav breakpoint (≤900px) ----- */
+@media (max-width:900px){
+      [dir="rtl"] .main-nav {
+       
+        width: 100% !important;
+    }
+        .main-nav {
+   
+        width: 100% !important;
+    }
+    .lang-switch {
+    
+    color: var(--color-primary) !important;
+   
+}
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--color-border)!important;
+}.home-page .site-header.is-scrolled .nav-toggle {
+    color: #fff;
+}
+  /* also collapses splits whose column ratio is set inline (contact, auction details) */
+  .split,.split[style*="grid-template-columns"]{grid-template-columns:1fr !important}
+  /* Anchored to inset-inline-start: physically left in LTR ("enters from the left"),
+     physically right in RTL ("enters from the right") — matches the language-aware
+     mobile menu requirement without any dir-conditional positioning. Only the
+     closed-state transform direction needs a dir-conditional sign, since
+     translateX() is a physical (not logical) transform. */
+  .main-nav{position:fixed;inset-block:var(--header-h) 0;inset-inline-start:0;width:min(340px,86vw);background:#fff;flex-direction:column;align-items:stretch;padding:12px 8px 28px;overflow-y:auto;transform:translateX(-110%);transition:transform .32s var(--ease);gap:0;box-shadow:var(--shadow-lg);z-index:99}
+  [dir="rtl"] .main-nav{transform:translateX(110%)}
+  .main-nav.open{transform:translateX(0)}
+  /* .site-header has backdrop-filter, which makes it the containing block for this
+     fixed drawer — so bottom:0 would resolve against the 76px header. Size it explicitly. */
+  .main-nav{height:calc(100vh - 76px);height:calc(100dvh - 76px);min-height:0}
+  .main-nav > ul{flex-direction:column;align-items:stretch;gap:2px}
+  .main-nav > ul > li{opacity:0;transform:translateY(10px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+  .main-nav.open > ul > li{opacity:1;transform:translateY(0)}
+  .main-nav.open > ul > li:nth-child(1){transition-delay:.06s}
+  .main-nav.open > ul > li:nth-child(2){transition-delay:.11s}
+  .main-nav.open > ul > li:nth-child(3){transition-delay:.16s}
+  .main-nav.open > ul > li:nth-child(4){transition-delay:.21s}
+  .main-nav.open > ul > li:nth-child(5){transition-delay:.26s}
+  /* Keep the off-canvas drawer out of the tab order / a11y tree while closed;
+     visibility flips only after the slide-out finishes. */
+  .main-nav{visibility:hidden;transition:transform .32s var(--ease),visibility 0s linear .32s}
+  .main-nav.open{visibility:visible;transition:transform .32s var(--ease),visibility 0s}
+  .nav-link{padding:14px 12px;border-radius:10px;min-height:48px}
+  .nav-link:hover,.nav-link[aria-current="page"]{background:var(--color-surface)}
+  .mega-menu{position:static;box-shadow:none;border:none;opacity:1;visibility:visible;transform:none;display:none;padding-inline-start:14px;min-width:0}
+  .nav-item.open .mega-menu{display:grid}
+  .nav-toggle{display:flex}
+  .header-actions{gap:8px}
+  /* The header-actions lang-switch is duplicated inside the drawer as
+     .mobile-lang-switch — showing both on narrow screens overflows the
+     header, so only the drawer copy is shown below 900px. */
+  .header-actions > .lang-switch{display:none}
+  .mobile-lang-switch{display:flex !important;margin-block-start:16px;border-top:1px solid var(--color-border);padding-block-start:16px}
+  body.menu-open{overflow:hidden}
+  .nav-overlay{display:block}
+}
+@media (min-width:901px){
+  .nav-overlay{display:none}
+  .mobile-lang-switch{display:none !important}
+}
+
+/* ----- Small tablet content (≤767px) ----- */
+@media (max-width:767px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr}
+  .check-grid{grid-template-columns:1fr}
+  .filter-bar{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:32px;text-align:start}
+  .cta-banner{padding:30px;flex-direction:column;text-align:center;justify-content:center}
+  .cta-banner .cta-actions{justify-content:center}
+  :root{--section-spacing:56px;--section-spacing-sm:36px}
+  .hero{padding-block:92px 48px}
+  .info-table td{display:block;width:100% !important}
+  .info-table td:first-child{padding-block-end:2px;color:var(--color-text-muted);font-weight:700}
+  .info-table tr{padding-block:10px;display:block}
+}
+
+/* ----- Mobile (≤575px) ----- */
+@media (max-width:575px){
+  .container{padding-inline:18px}
+  .hero-actions,.cta-actions,.radio-group{flex-direction:column;align-items:stretch}
+  .btn{width:100%}
+  .lang-switch{width:auto}
+  .carousel-slide{width:clamp(130px,42vw,175px);height:88px;padding:14px}
+  .carousel-slide img{max-height:44px}
+  .main-nav{width:100vw}
+  .sidebar-card{padding:22px}
+  .form-card{padding:22px}
+  .cta-banner{padding:24px}
+}
+
+/* ----- Extra-narrow phones (≤359px) ----- */
+@media (max-width:359px){
+  h1{font-size:1.7rem}
+  .btn{padding-inline:18px}
+}
+.hero{
+  background-image: url("../images/hero.png");
+}
