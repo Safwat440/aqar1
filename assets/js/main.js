@@ -412,7 +412,15 @@
    Cards are positioned by JS; CSS handles the transitions. */
 (function () {
   'use strict';
+  // language.js applies the saved language on DOMContentLoaded (silently, no
+  // aqar:languagechange). This script runs earlier, while the default Arabic block
+  // is still the visible one, so measuring now would size the wrong carousels and
+  // leave the visible ones unpositioned. Initialise on DOMContentLoaded instead:
+  // language.js registered its handler first, so the right block is visible by then.
+  function initAll() {
   document.querySelectorAll('[data-prop-carousel]').forEach(function (root) {
+    if (root.dataset.propInit) return;   // idempotent: never bind a second instance
+    root.dataset.propInit = '1';
     var section = root.closest('[data-prop-section]');
     var viewport = root.querySelector('.prop-carousel__viewport');
     var all = Array.prototype.slice.call(viewport.querySelectorAll('.prop-card'));
@@ -477,7 +485,22 @@
         dotsBox.appendChild(b);
       });
     }
-    function go(i) { var n = items.length; if (!n) return; active = ((i % n) + n) % n; layout(); }
+    // ---- autoplay: exactly one timer per carousel. Every move (automatic or
+    // manual) goes through go(), which re-arms that single timer, so manual
+    // navigation never stops autoplay and never stacks a second loop. ----
+    var AUTOPLAY_MS = 4500;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null, hovering = false, touching = false, keyboardFocus = false, inView = false;
+    function canAutoplay() {
+      return !reduceMotion && inView && !document.hidden && !hovering && !touching && !keyboardFocus &&
+        items.length > 1 && !!viewport.offsetParent;
+    }
+    function stopAutoplay() { if (timer) { clearTimeout(timer); timer = null; } }
+    function armAutoplay() {
+      stopAutoplay();
+      if (canAutoplay()) timer = setTimeout(function () { timer = null; go(active + 1); }, AUTOPLAY_MS);
+    }
+    function go(i) { var n = items.length; if (!n) return; active = ((i % n) + n) % n; layout(); armAutoplay(); }
     prevBtn.addEventListener('click', function () { go(active - 1); });
     nextBtn.addEventListener('click', function () { go(active + 1); });
     root.addEventListener('keydown', function (e) {
@@ -496,27 +519,53 @@
     });
     // swipe
     var sx = 0, sy = 0, tracking = false;
-    viewport.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; tracking = true; sx = e.clientX; sy = e.clientY; });
+    viewport.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; tracking = true; touching = true; stopAutoplay(); sx = e.clientX; sy = e.clientY; });
     viewport.addEventListener('pointerup', function (e) {
-      if (!tracking) return; tracking = false;
+      if (!tracking) return; tracking = false; touching = false;
       var dx = e.clientX - sx, dy = e.clientY - sy;
       if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
       var forward = rtl() ? dx > 0 : dx < 0;
       go(active + (forward ? 1 : -1));
     });
-    viewport.addEventListener('pointercancel', function () { tracking = false; });
+    viewport.addEventListener('pointercancel', function () { tracking = false; touching = false; armAutoplay(); });
+    viewport.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse' && !timer) armAutoplay(); });
+    // pause while a mouse is over the carousel or keyboard focus is inside it
+    root.addEventListener('mouseenter', function () { hovering = true; stopAutoplay(); });
+    root.addEventListener('mouseleave', function () { hovering = false; armAutoplay(); });
+    root.addEventListener('focusin', function (e) {
+      if (e.target.matches && e.target.matches(':focus-visible')) { keyboardFocus = true; stopAutoplay(); }
+    });
+    root.addEventListener('focusout', function (e) {
+      if (!root.contains(e.relatedTarget)) { keyboardFocus = false; armAutoplay(); }
+    });
+    document.addEventListener('visibilitychange', armAutoplay);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[entries.length - 1].isIntersecting; armAutoplay();
+      }, { threshold: 0.25 }).observe(root);
+    } else { inView = true; }
     Array.prototype.forEach.call(tabs, function (tab) {
       tab.addEventListener('click', function () {
         Array.prototype.forEach.call(tabs, function (t) { t.setAttribute('aria-selected', String(t === tab)); });
         var f = tab.getAttribute('data-prop-filter');
         items = all.filter(function (c) { return f === 'all' || c.getAttribute('data-' + key) === f; });
-        active = 0; slots.clear(); buildDots(); layout(true);
+        active = 0; slots.clear(); buildDots(); layout(true); armAutoplay();
       });
     });
     buildDots(); layout(true);
-    window.addEventListener('resize', function () { layout(true); });
-    document.addEventListener('aqar:languagechange', function () { slots.clear(); layout(true); });
+    // Layout depends on the viewport's real width, which is 0 while the carousel's
+    // language block is hidden. The saved language is applied silently on load (no
+    // aqar:languagechange), so a carousel can become visible with no event at all.
+    // Observing the viewport's size covers that, plus breakpoints, scrollbars and
+    // DevTools. layout() keeps the current slide, so re-running it is safe.
+    function relayout() { slots.clear(); layout(true); armAutoplay(); }
+    if ('ResizeObserver' in window) new ResizeObserver(relayout).observe(viewport);
+    else window.addEventListener('resize', relayout);
+    document.addEventListener('aqar:languagechange', relayout);   // explicit switch
   });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAll);
+  else initAll();
 })();
 
 /* Homepage video hero: fade the video in once frames are playing; the poster

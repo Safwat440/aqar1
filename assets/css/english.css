@@ -19,3 +19,5 @@ h1,h2,h3,h4{letter-spacing:-.01em;line-height:1.2}
 .carousel-controls {
     direction: rtl;
 }
+
+.prop-section__art{position:absolute;z-index:-1;inset-block-start:0;inset-inline-start:0;width:min(520px,40vw);aspect-ratio:520/420;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='420' fill='none' stroke='%239d5e2e' stroke-width='1'%3E%3Cpath d='M520 40C380 60 300 170 290 420'/%3E%3Cpath d='M520 80C400 100 330 200 322 420'/%3E%3Cpath d='M520 120C420 140 360 230 354 420'/%3E%3Cpath d='M160 420C200 250 330 120 520 90'/%3E%3Cpath d='M420 420V210M440 420V200M460 420V192M480 420V186M500 420V182'/%3E%3Ccircle cx='520' cy='420' r='300' stroke-dasharray='2 8'/%3E%3C/svg%3E") top right/contain no-repeat;opacity:.06;pointer-events:none}
