@@ -371,7 +371,7 @@ p{color:var(--color-text-muted)}
 section.page-hero.section-dark{
   background-image:linear-gradient(90deg,rgba(10,16,21,.8),rgba(10,16,21,.5) 60%,rgba(10,16,21,.35)),url("../images/real-estate-banner.jpg");    background-size: cover;
 }
-/* Readability scrim for text over the banner photo (About hero intentionally left as designed) */
+/* Readability scrim for text over the banner photo (not applied to the About hero) */
 section.page-hero.section-dark:not([data-hero="about"]){
   background-image:linear-gradient(90deg,rgba(10,16,21,.8),rgba(10,16,21,.5) 60%,rgba(10,16,21,.35)),url("../images/real-estate-banner.jpg");
   background-position:center;
@@ -536,7 +536,7 @@ section.page-hero.section-dark:not([data-hero="about"]){
   .stats-editorial__label{font-size:.8rem}
 }
 
-/* ---------- Homepage editorial services (Design 2) ---------- */
+/* ---------- Homepage editorial services ---------- */
 /* Same palette as .stats-editorial. Interactive list: the active row drives the image. */
 .services-editorial{--sv-bg:#f5f0e7;--sv-bg-2:#efe8dc;--sv-ink:#211c17;--sv-muted:#756a5d;--sv-accent:#a77a45;--sv-line:rgba(117,106,93,.2);--sv-ease:cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;padding-block:clamp(64px,6vw,88px);background:linear-gradient(180deg,var(--sv-bg),var(--sv-bg-2));color:var(--sv-ink)}
 .services-editorial .services-editorial__inner{max-width:1240px;padding-inline:40px}
@@ -1081,7 +1081,7 @@ section.section.section-dark.faq-section {
   .prop-card__desc{-webkit-line-clamp:2}
 }
 
-/* ===== Aqar One premium v2 ===== */
+/* ===== Header, nav, cards, gallery ===== */
 .site-header .header-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;height:100%}.site-header .brand{justify-self:start}.site-header .main-nav{justify-self:center}.site-header .header-actions{justify-self:end}.site-header .brand-logo{height:42px;transition:transform .45s var(--ease),filter .45s var(--ease)}.site-header .brand:hover .brand-logo{transform:translateY(-1px) scale(1.015)}
 .nav-link{position:relative;overflow:hidden}.nav-link::after{content:"";position:absolute;inset-inline:14px;inset-block-end:5px;height:2px;background:var(--color-gold);transform:scaleX(0);transition:transform .35s var(--ease)}.nav-link:hover::after,.nav-link[aria-current="page"]::after{transform:scaleX(1)}
 .header-cta{position:relative;overflow:hidden;box-shadow:0 8px 22px rgba(201,152,107,.18)}/* shine sweep comes from the shared .btn::after below */
@@ -1140,7 +1140,7 @@ section.section.section-dark.faq-section {
 .map-frame{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--color-border);box-shadow:var(--shadow-md);background:#eef1ef;min-height:360px;margin-block-start:16px}
 .map-frame iframe{display:block;width:100%;height:360px;border:0;filter:saturate(.86) contrast(.98);}
 
-/* One button hover language across the site, inspired by the header CTA */
+/* Shared button hover (matches the header CTA) */
 .btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .32s var(--ease),box-shadow .32s var(--ease),background .32s var(--ease),color .32s var(--ease),border-color .32s var(--ease)}
 .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 18%,rgba(255,255,255,.34) 50%,transparent 82%);transform:translateX(-125%);transition:transform .7s var(--ease);pointer-events:none;z-index:-1}
 .btn:hover::after{transform:translateX(125%)}
@@ -1156,14 +1156,14 @@ section.section.section-dark.faq-section {
 .card-media img{transition:transform .9s var(--ease),filter .65s var(--ease)}
 .card:hover .card-media img{transform:scale(1.075);filter:saturate(1.05)}
 
-/* About stats section — replace the flat block with premium editorial tiles */
+/* About stats tiles */
 .stat{position:relative;overflow:hidden;border:1px solid rgba(228,220,206,.92);border-radius:20px;background:rgba(255,255,255,.82);box-shadow:0 8px 26px rgba(26,35,44,.05);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);}
 .stat::before{content:"";position:absolute;inset-block-start:0;inset-inline-start:0;width:42px;height:3px;background:linear-gradient(90deg,var(--color-gold),var(--color-gold-light));}
 .stat:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(26,35,44,.10);border-color:rgba(201,152,107,.55)}
 .stat span{color:var(--color-text-muted)!important;font-size:.78rem!important;font-weight:600}
 .stat b{display:block;color:var(--color-primary);font-family:var(--font-heading);font-size:clamp(1.15rem,1rem + .55vw,1.5rem)!important;line-height:1.3}
 
-/* Project detail facts: more intentional than the old flat sidebar */
+/* Project detail facts sidebar */
 .project-detail-aside{background:linear-gradient(180deg,#fff,#fbf4eb);border-color:rgba(201,152,107,.35);box-shadow:0 22px 55px rgba(26,35,44,.12)}
 .project-detail-aside h3{font-size:1.35rem;margin-block-end:12px}
 .project-detail-aside .detail-line{transition:padding .3s var(--ease),background .3s var(--ease);border-radius:12px;padding-inline:10px}

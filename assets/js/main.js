@@ -412,11 +412,8 @@
    Cards are positioned by JS; CSS handles the transitions. */
 (function () {
   'use strict';
-  // language.js applies the saved language on DOMContentLoaded (silently, no
-  // aqar:languagechange). This script runs earlier, while the default Arabic block
-  // is still the visible one, so measuring now would size the wrong carousels and
-  // leave the visible ones unpositioned. Initialise on DOMContentLoaded instead:
-  // language.js registered its handler first, so the right block is visible by then.
+  // Wait for DOMContentLoaded: language.js shows the saved language's block then,
+  // and measuring earlier would size the hidden block's carousels.
   function initAll() {
   document.querySelectorAll('[data-prop-carousel]').forEach(function (root) {
     if (root.dataset.propInit) return;   // idempotent: never bind a second instance
@@ -485,9 +482,7 @@
         dotsBox.appendChild(b);
       });
     }
-    // ---- autoplay: exactly one timer per carousel. Every move (automatic or
-    // manual) goes through go(), which re-arms that single timer, so manual
-    // navigation never stops autoplay and never stacks a second loop. ----
+    // autoplay: one timer per carousel, re-armed by every go() call
     var AUTOPLAY_MS = 4500;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var timer = null, hovering = false, touching = false, keyboardFocus = false, inView = false;
@@ -553,11 +548,8 @@
       });
     });
     buildDots(); layout(true);
-    // Layout depends on the viewport's real width, which is 0 while the carousel's
-    // language block is hidden. The saved language is applied silently on load (no
-    // aqar:languagechange), so a carousel can become visible with no event at all.
-    // Observing the viewport's size covers that, plus breakpoints, scrollbars and
-    // DevTools. layout() keeps the current slide, so re-running it is safe.
+    // Re-layout whenever the viewport's size changes (including when a hidden
+    // language block becomes visible). layout() keeps the current slide.
     function relayout() { slots.clear(); layout(true); armAutoplay(); }
     if ('ResizeObserver' in window) new ResizeObserver(relayout).observe(viewport);
     else window.addEventListener('resize', relayout);

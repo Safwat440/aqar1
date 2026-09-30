@@ -1,7 +1,6 @@
 // عقار ونّ — centralized translation dictionary for site-wide chrome
 // (header, navigation, footer, and generic UI strings).
-// Page-specific long-form content lives in each page's embedded ar/en blocks,
-// generated from build/*.js — see README note in build/generate-unified.js.
+// Page-specific content lives in each page's own ar/en .i18n-block elements.
 window.translations = {
   ar: {
     // Navigation
