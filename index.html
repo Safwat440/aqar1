@@ -43,70 +43,444 @@
 </header>
 <div class="nav-overlay"></div>
 <main id="main">
+<section class="hero-video" data-hero-video>
+  <div class="hero-video__media" aria-hidden="true">
+    <video class="hero-video__video" autoplay muted loop playsinline preload="metadata" poster="assets/images/real-estate/hero-video-poster.jpg" disablepictureinpicture disableremoteplayback tabindex="-1">
+      <source src="assets/images/video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video__overlay" aria-hidden="true"></div>
+  <div class="i18n-block hero-video__content-wrap" data-lang="ar">
+    <div class="container hero-video__content">
+      <span class="eyebrow hero-video__eyebrow">مزادات · وساطة · تسويق عقاري</span>
+      <h1 class="hero-video__title">عقار موثوق، وتجربة واضحة من العرض حتى الإفراغ</h1>
+      <p class="hero-video__description">مجموعة عقارية سعودية في جدة. نُنظّم المزادات، وندير الوساطة، ونسوّق مشروعات المطوّرين بمنهج واضح.</p>
+      <div class="hero-video__actions">
+        <a class="btn btn-gold hero-video__btn" href="auctions.html">تصفح المزادات<i class="fa-solid fa-arrow-left btn-arrow" aria-hidden="true"></i></a>
+        <a class="btn btn-outline hero-outline hero-video__btn" href="contact.html">سجّل متطلباتك</a>
+      </div>
+    </div>
+  </div>
+  <div class="i18n-block hero-video__content-wrap" data-lang="en" hidden>
+    <div class="container hero-video__content">
+      <span class="eyebrow hero-video__eyebrow">Auctions · Brokerage · Project Marketing</span>
+      <h1 class="hero-video__title">Trusted real estate, with a clear journey from listing to transfer</h1>
+      <p class="hero-video__description">A Saudi real estate group in Jeddah. We manage auctions, brokerage and developer marketing with a clear, disciplined process.</p>
+      <div class="hero-video__actions">
+        <a class="btn btn-gold hero-video__btn" href="auctions.html">Browse Auctions<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
+        <a class="btn btn-outline hero-outline hero-video__btn" href="contact.html">Register Your Requirements</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-video__scroll" aria-hidden="true"><span class="hero-video__scroll-line"></span></div>
+</section>
 <div class="i18n-block" data-lang="ar">
 
-<section class="hero hero-slider" data-hero-slider aria-label="عروض عقار ونّ">
-  <div class="hero-slides">
-    <article class="hero-slide is-active" data-slide="0">
-      <img class="hero-slide-media" src="assets/images/real-estate/hero-01.jpg" alt="واجهة عقارية بإطلالة حضرية عند الغروب" fetchpriority="high">
-      <div class="hero-slide-overlay"></div>
-      <div class="container hero-slide-content">
-        <span class="eyebrow">مزادات · وساطة · تسويق عقاري</span>
-        <h1>عقار موثوق، وتجربة واضحة من العرض حتى الإفراغ</h1>
-        <p class="lede">مجموعة عقارية سعودية في جدة. نُنظّم المزادات، وندير الوساطة، ونسوّق مشروعات المطوّرين بمنهج واضح.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="auctions.html">تصفح المزادات<i class="fa-solid fa-arrow-left btn-arrow" aria-hidden="true"></i></a>
-          <a class="btn btn-outline hero-outline" href="contact.html">سجّل متطلباتك</a>
-        </div>
-      </div>
-    </article>
-    <article class="hero-slide" data-slide="1">
-      <img class="hero-slide-media" src="assets/images/real-estate/hero-02.jpg" alt="مشهد عمراني ومشروعات عقارية حديثة" loading="lazy">
-      <div class="hero-slide-overlay"></div>
-      <div class="container hero-slide-content">
-        <span class="eyebrow">مشروعات · تطوير · قيمة</span>
-        <h2>نحوّل المشروعات العقارية إلى فرص قابلة للنمو</h2>
-        <p class="lede">من دراسة السوق والتسعير إلى الحملات وفريق المبيعات، نربط المشروع بالعميل المناسب.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="project-marketing.html">اكتشف التسويق العقاري<i class="fa-solid fa-arrow-left btn-arrow" aria-hidden="true"></i></a>
-          <a class="btn btn-outline hero-outline" href="projects.html">استعرض المشروعات</a>
-        </div>
-      </div>
-    </article>
-    <article class="hero-slide" data-slide="2">
-      <img class="hero-slide-media" src="assets/images/real-estate/hero-03.jpg" alt="تفاصيل معمارية وإطلالة عقارية فاخرة" loading="lazy">
-      <div class="hero-slide-overlay"></div>
-      <div class="container hero-slide-content">
-        <span class="eyebrow">خبرة منذ 2011</span>
-        <h2>قرارات عقارية أهدأ، وبيانات أوضح، وتنفيذ أدق</h2>
-        <p class="lede">خبرة متراكمة في المزادات والوساطة والتسويق والاستشارات تساعدك على اتخاذ الخطوة التالية بثقة.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="contact.html">تحدث مع فريقنا<i class="fa-solid fa-arrow-left btn-arrow" aria-hidden="true"></i></a>
-          <a class="btn btn-outline hero-outline" href="about.html">تعرّف علينا</a>
-        </div>
-      </div>
-    </article>
-  </div>
-  <div class="hero-slider-ui container">
-    <div class="hero-counter"><strong data-hero-current>01</strong><span>/</span><span>03</span></div>
-    <div class="hero-dots" role="tablist" aria-label="شرائح الهيرو">
-      <button class="hero-dot is-active" type="button" role="tab" data-hero-dot="0" aria-label="الشريحة الأولى" aria-selected="true"></button>
-      <button class="hero-dot" type="button" role="tab" data-hero-dot="1" aria-label="الشريحة الثانية" aria-selected="false"></button>
-      <button class="hero-dot" type="button" role="tab" data-hero-dot="2" aria-label="الشريحة الثالثة" aria-selected="false"></button>
+
+<section class="section-sm stats-editorial" data-stats-editorial aria-labelledby="stats-editorial-title-ar">
+  <div class="stats-editorial__bg" aria-hidden="true"></div>
+  <div class="container stats-editorial__inner">
+    <div class="stats-editorial__intro">
+      <span class="eyebrow stats-editorial__eyebrow">خبرة منذ 2011</span>
+      <h2 class="stats-editorial__title" id="stats-editorial-title-ar">قرارات عقارية أهدأ، وبيانات أوضح، وتنفيذ أدق</h2>
+      <p class="stats-editorial__text">خبرة متراكمة في المزادات والوساطة والتسويق والاستشارات تساعدك على اتخاذ الخطوة التالية بثقة.</p>
     </div>
-    <div class="hero-slider-controls">
-      <button type="button" class="hero-arrow" data-hero-prev aria-label="الشريحة السابقة"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-      <button type="button" class="hero-arrow" data-hero-next aria-label="الشريحة التالية"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-    </div>
+    <ul class="stats-editorial__list" aria-label="عقار ونّ بالأرقام">
+      <li class="stats-editorial__item"><i class="fa-regular fa-calendar stats-editorial__icon" aria-hidden="true"></i><b class="stats-editorial__num">2011</b><span class="stats-editorial__label">سنة التأسيس</span></li>
+      <li class="stats-editorial__item"><i class="fa-solid fa-gavel stats-editorial__icon" aria-hidden="true"></i><b class="stats-editorial__num"><span data-count="180">180</span><span class="stats-editorial__plus">+</span></b><span class="stats-editorial__label">مزادًا نُظّم حتى اليوم</span></li>
+      <li class="stats-editorial__item"><i class="fa-regular fa-building stats-editorial__icon" aria-hidden="true"></i><b class="stats-editorial__num"><span data-count="42">42</span><span class="stats-editorial__plus">+</span></b><span class="stats-editorial__label">مشروعًا نسوّقه للمطوّرين</span></li>
+    </ul>
   </div>
-  <div class="hero-scroll-hint" aria-hidden="true"><span></span><em>Scroll</em></div>
 </section>
 
-<section class="section-sm">
-  <div class="container">
-    <div class="stats-strip reveal-stagger">
-    <div class="stat"><b>2011</b><span>سنة التأسيس</span></div><div class="stat"><b data-count="180">0</b><span>مزادًا نُظّم حتى اليوم</span></div><div class="stat"><b data-count="42">0</b><span>مشروعًا نسوّقه للمطوّرين</span></div>
+<section class="section section-services services-editorial" data-services-editorial aria-labelledby="services-editorial-title-ar">
+  <div class="container services-editorial__inner">
+    <div class="services-editorial__intro">
+      <span class="eyebrow services-editorial__eyebrow">خدماتنا</span>
+      <h2 class="services-editorial__heading" id="services-editorial-title-ar">ما نقدّمه بالتفصيل</h2>
+      <p class="services-editorial__text">أربع خدمات تحت مظلّة واحدة، وفريق واحد يتابع الملف من التقييم حتى الإفراغ.</p>
+    </div>
+    <ol class="services-editorial__list" aria-label="قائمة الخدمات">
+      <li class="services-editorial__row">
+        <a class="services-editorial__item is-active" href="auction-management.html" data-service-index="0" aria-current="true">
+          <span class="services-editorial__num">01</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-gavel"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">تنظيم وإدارة المزادات</span><span class="services-editorial__desc">مزادات ملّاك وجهات حكومية وبيوع قضائية: التجهيز، كراسة الشروط، إدارة القاعة والمنصة، والترسية.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
+        </a>
+      </li>
+      <li class="services-editorial__row">
+        <a class="services-editorial__item" href="brokerage.html" data-service-index="1">
+          <span class="services-editorial__num">02</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">الوساطة والتفاوض</span><span class="services-editorial__desc">تمثيل البائع أو المشتري في الأراضي والعمائر والوحدات التجارية، مع متابعة الإفراغ.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
+        </a>
+      </li>
+      <li class="services-editorial__row">
+        <a class="services-editorial__item" href="project-marketing.html" data-service-index="2">
+          <span class="services-editorial__num">03</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">تسويق المشروعات</span><span class="services-editorial__desc">خطة تسويق كاملة للمطوّر: التسعير، الهوية البيعية، الحملات الرقمية، وفريق المبيعات.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
+        </a>
+      </li>
+      <li class="services-editorial__row">
+        <a class="services-editorial__item" href="consulting.html" data-service-index="3">
+          <span class="services-editorial__num">04</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">الاستشارات والتقييم</span><span class="services-editorial__desc">دراسات جدوى ورأي فني في القيمة السوقية وأفضل استخدام للأصل قبل قرار البيع.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
+        </a>
+      </li>
+    </ol>
+    <div class="services-editorial__media">
+      <img class="services-editorial__img is-active" src="assets/images/real-estate/service-01.jpg" alt="أراضٍ وفلل سكنية من الأعلى في حيّ قيد التطوير" width="1280" height="720" loading="lazy" decoding="async" data-service-image="0">
+      <img class="services-editorial__img" src="assets/images/real-estate/service-02.jpg" alt="حيّ سكني بفلل حديثة وحدائق" width="1280" height="720" loading="lazy" decoding="async" data-service-image="1" aria-hidden="true">
+      <img class="services-editorial__img" src="assets/images/real-estate/service-03.jpg" alt="شارع تجاري بين أبراج مكتبية حديثة" width="1280" height="720" loading="lazy" decoding="async" data-service-image="2" aria-hidden="true">
+      <img class="services-editorial__img" src="assets/images/real-estate/service-04.jpg" alt="واجهة برج حديث بتفاصيل زجاجية ومعدنية" width="1280" height="720" loading="lazy" decoding="async" data-service-image="3" aria-hidden="true">
+    </div>
   </div>
+</section>
+
+<section class="section paths-editorial" data-paths-editorial>
+  <div class="paths-editorial__topo" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head center paths-editorial__head">
+      <span class="eyebrow">ثلاثة مسارات</span>
+      <h2>ابدأ من المسار الذي يخصّك</h2>
+      <p class="lede">هذه ليست قائمة خدمات — بل ثلاثة مداخل، كل واحد يأخذك إلى صفحة مختلفة وإجراء مختلف.</p>
+    </div>
+    <div class="paths-editorial__tree">
+      <span class="paths-editorial__node" aria-hidden="true"></span>
+      <svg class="paths-editorial__branches" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="paths-editorial__branch" d="M600 0 C600 44 200 36 200 80" pathLength="1"/>
+        <path class="paths-editorial__branch" d="M600 0 L600 80" pathLength="1"/>
+        <path class="paths-editorial__branch" d="M600 0 C600 44 1000 36 1000 80" pathLength="1"/>
+      </svg>
+      <ol class="paths-editorial__list">
+      <li class="paths-editorial__path">
+        <div class="paths-editorial__meta"><span class="paths-editorial__num">01</span><span class="paths-editorial__icon" aria-hidden="true"><i class="fa-solid fa-gavel"></i></span></div>
+        <figure class="paths-editorial__media"><img src="assets/images/real-estate/hero-video-poster.jpg" alt="منظر جوي لمدينة وأحياء قيد التطوير" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+        <h3 class="paths-editorial__title">قائمة المزادات</h3>
+        <p class="paths-editorial__desc">مزادات علنية وإلكترونية بإشراف نظامي. تصفّح المزادات القادمة واطّلع على كراسة الشروط ومتطلبات المشاركة قبل التسجيل.</p>
+        <a class="paths-editorial__cta" href="auctions.html">تفاصيل المزادات<i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+      </li>
+      <li class="paths-editorial__path">
+        <div class="paths-editorial__meta"><span class="paths-editorial__num">02</span><span class="paths-editorial__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span></div>
+        <figure class="paths-editorial__media"><img src="assets/images/real-estate/hero-01.jpg" alt="شرفة سكنية تطل على المدينة عند الغروب" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+        <h3 class="paths-editorial__title">وساطة عقارية</h3>
+        <p class="paths-editorial__desc">عندك عقار للبيع أو تبحث عن أصل محدد؟ سجّل متطلباتك ويتولّى فريق الوساطة التقييم والتفاوض حتى الإفراغ.</p>
+        <a class="paths-editorial__cta" href="contact.html">سجّل متطلباتك<i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+      </li>
+      <li class="paths-editorial__path">
+        <div class="paths-editorial__meta"><span class="paths-editorial__num">03</span><span class="paths-editorial__icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span></div>
+        <figure class="paths-editorial__media"><img src="assets/images/real-estate/hero-02.jpg" alt="أبراج قيد الإنشاء في مشروع تطوير عقاري" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+        <h3 class="paths-editorial__title">التسويق العقاري</h3>
+        <p class="paths-editorial__desc">نُدير تسويق مشروعات المطوّرين: دراسة السوق، تسعير الوحدات، إدارة الحملات، وفريق مبيعات ميداني.</p>
+        <a class="paths-editorial__cta" href="project-marketing.html">تعرف على الخدمة<i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section process-journey" data-process-journey>
+  <div class="container">
+    <div class="section-head center process-journey__head">
+      <span class="eyebrow">آلية العمل</span>
+      <h2>أربع خطوات واضحة</h2>
+      <p class="lede">نفس المسار في المزادات والوساطة والتسويق — تختلف التفاصيل ولا يختلف الترتيب.</p>
+    </div>
+    <ol class="process-journey__list">
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(-90 100 100)"/>
+          </svg>
+          <span class="process-journey__num">01</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">الطلب والتقييم</h3>
+          <p class="process-journey__desc">تُرسل متطلباتك أو بيانات العقار، ويتولّى الفريق فحص الوضع النظامي والصكوك والتقييم السوقي.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-regular fa-file-lines"></i></div>
+        <span class="process-journey__link" aria-hidden="true"></span>
+      </li>
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(0 100 100)"/>
+          </svg>
+          <span class="process-journey__num">02</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">التجهيز والتوثيق</h3>
+          <p class="process-journey__desc">إعداد كراسة الشروط أو ملف العرض، وتحديد آلية البيع وشروط المشاركة والمواعيد.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-solid fa-compass-drafting"></i></div>
+        <span class="process-journey__link" aria-hidden="true"></span>
+      </li>
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(90 100 100)"/>
+          </svg>
+          <span class="process-journey__num">03</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">العرض والتسويق</h3>
+          <p class="process-journey__desc">نشر المزاد أو المشروع، وإدارة الاستفسارات والمعاينات حتى موعد البيع.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
+        <span class="process-journey__link" aria-hidden="true"></span>
+      </li>
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(180 100 100)"/>
+          </svg>
+          <span class="process-journey__num">04</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">الترسية والإفراغ</h3>
+          <p class="process-journey__desc">استكمال السداد وإجراءات النقل لدى الجهات المختصة، وتسليم المستندات للمالك الجديد.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-solid fa-key"></i></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section prop-section prop-section--auctions" data-prop-section aria-labelledby="home-auctions-ar-title">
+  <div class="prop-section__art" aria-hidden="true"></div>
+  <div class="container">
+    <header class="prop-section__intro">
+      <span class="eyebrow">فرص استثمارية</span>
+      <h2 id="home-auctions-ar-title">المزادات</h2>
+      <p class="lede">مواعيد المزادات بالتاريخ الميلادي والهجري. التسجيل يتم على منصة المزادات المعتمدة.</p>
+    </header>
+    <div class="prop-section__bar">
+      <div class="prop-tabs" role="tablist" aria-label="تصنيف"><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="all" aria-selected="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>الكل</span><small>(6)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="live" aria-selected="false"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i><span>جارٍ الآن</span><small>(1)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="open" aria-selected="false"><i class="fa-solid fa-door-open" aria-hidden="true"></i><span>التسجيل مفتوح</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="upcoming" aria-selected="false"><i class="fa-solid fa-clock" aria-hidden="true"></i><span>قادم</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="closed" aria-selected="false"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>التسجيل مغلق</span><small>(1)</small></button></div>
+      <a class="prop-section__all" href="auctions.html"><span>جميع المزادات</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+    </div>
+    <div class="prop-carousel" data-prop-carousel role="region" aria-roledescription="carousel" aria-label="شريط المزادات" tabindex="0">
+      <div class="prop-carousel__viewport">
+        <article class="prop-card prop-card--auction" data-card data-status="live" data-city="jeddah" data-type="land">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مزاد أراضي أبحر الشمالية" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-live prop-card__badge prop-card__badge--status">جارٍ الآن</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-08-12T17:00:00" aria-label="الوقت المتبقي حتى موعد المزاد"><span><b data-cd-days>--</b> يوم</span><span><b data-cd-hours>--</b> ساعة</span><span><b data-cd-mins>--</b> دقيقة</span><span class="prop-card__cd-date">12 أغسطس 2026 · 5:00 م</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · أبحر الشمالية</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">مزاد أراضي أبحر الشمالية</a></h3>
+            <p class="prop-card__desc">12 أغسطس 2026 · 18 صفر 1448 · 5:00 م</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX وحدة</span><a class="prop-card__more" href="auction-details.html"><span>تفاصيل المزاد</span><i class="fa-solid fa-arrow-left"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="open" data-city="jeddah" data-type="buildings">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مزاد عمائر حي الصفا" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-open prop-card__badge prop-card__badge--status">التسجيل مفتوح</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-08-26T18:00:00" aria-label="الوقت المتبقي حتى موعد المزاد"><span><b data-cd-days>--</b> يوم</span><span><b data-cd-hours>--</b> ساعة</span><span><b data-cd-mins>--</b> دقيقة</span><span class="prop-card__cd-date">26 أغسطس 2026 · 6:00 م</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الصفا</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">مزاد عمائر حي الصفا</a></h3>
+            <p class="prop-card__desc">26 أغسطس 2026 · 3 ربيع الأول 1448 · 6:00 م</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX وحدة</span><a class="prop-card__more" href="auction-details.html"><span>تفاصيل المزاد</span><i class="fa-solid fa-arrow-left"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="open" data-city="jeddah" data-type="warehouses">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مزاد مستودعات المنطقة الصناعية" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-open prop-card__badge prop-card__badge--status">التسجيل مفتوح</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-09-09T17:30:00" aria-label="الوقت المتبقي حتى موعد المزاد"><span><b data-cd-days>--</b> يوم</span><span><b data-cd-hours>--</b> ساعة</span><span><b data-cd-mins>--</b> دقيقة</span><span class="prop-card__cd-date">9 سبتمبر 2026 · 5:30 م</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · المنطقة الصناعية الثانية</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">مزاد مستودعات المنطقة الصناعية</a></h3>
+            <p class="prop-card__desc">9 سبتمبر 2026 · 17 ربيع الأول 1448 · 5:30 م</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX وحدة</span><a class="prop-card__more" href="auction-details.html"><span>تفاصيل المزاد</span><i class="fa-solid fa-arrow-left"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="upcoming" data-city="jeddah" data-type="land">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مزاد أراضي شرق جدة" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-upcoming prop-card__badge prop-card__badge--status">قادم</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-09-23T17:00:00" aria-label="الوقت المتبقي حتى موعد المزاد"><span><b data-cd-days>--</b> يوم</span><span><b data-cd-hours>--</b> ساعة</span><span><b data-cd-mins>--</b> دقيقة</span><span class="prop-card__cd-date">23 سبتمبر 2026 · 5:00 م</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">مزاد أراضي شرق جدة</a></h3>
+            <p class="prop-card__desc">23 سبتمبر 2026 · 1 ربيع الآخر 1448 · 5:00 م</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX وحدة</span><a class="prop-card__more" href="auction-details.html"><span>تفاصيل المزاد</span><i class="fa-solid fa-arrow-left"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="upcoming" data-city="jeddah" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مزاد وحدات تجارية" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-upcoming prop-card__badge prop-card__badge--status">قادم</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-10-07T18:00:00" aria-label="الوقت المتبقي حتى موعد المزاد"><span><b data-cd-days>--</b> يوم</span><span><b data-cd-hours>--</b> ساعة</span><span><b data-cd-mins>--</b> دقيقة</span><span class="prop-card__cd-date">7 أكتوبر 2026 · 6:00 م</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">مزاد وحدات تجارية</a></h3>
+            <p class="prop-card__desc">7 أكتوبر 2026 · 15 ربيع الآخر 1448 · 6:00 م</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX وحدة</span><a class="prop-card__more" href="auction-details.html"><span>تفاصيل المزاد</span><i class="fa-solid fa-arrow-left"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="closed" data-city="jeddah" data-type="buildings">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مزاد عمائر شمال جدة" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-closed prop-card__badge prop-card__badge--status">التسجيل مغلق</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-10-21T17:30:00" aria-label="الوقت المتبقي حتى موعد المزاد"><span><b data-cd-days>--</b> يوم</span><span><b data-cd-hours>--</b> ساعة</span><span><b data-cd-mins>--</b> دقيقة</span><span class="prop-card__cd-date">21 أكتوبر 2026 · 5:30 م</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">مزاد عمائر شمال جدة</a></h3>
+            <p class="prop-card__desc">21 أكتوبر 2026 · 29 ربيع الآخر 1448 · 5:30 م</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX وحدة</span><a class="prop-card__more" href="auction-details.html"><span>تفاصيل المزاد</span><i class="fa-solid fa-arrow-left"></i></a></div>
+          </div>
+        </article>
+      </div>
+      <button class="prop-carousel__nav prop-carousel__nav--prev" type="button" data-prop-prev aria-label="السابق"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      <button class="prop-carousel__nav prop-carousel__nav--next" type="button" data-prop-next aria-label="التالي"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+      <div class="prop-carousel__footer">
+        <p class="prop-carousel__counter" aria-live="polite"><b data-prop-current>01</b><span>/</span><span data-prop-total>06</span></p>
+        <div class="prop-carousel__dots" data-prop-dots></div>
+      </div>
+    </div>
+    <p class="prop-section__note">التسجيل والمزايدة يتمّان على منصة [[اسم منصة المزادات]] — ستنتقل إلى موقع خارجي لإتمام التسجيل.</p>
+  </div>
+</section>
+
+<section class="section prop-section prop-section--projects" data-prop-section aria-labelledby="home-projects-ar-title">
+  <div class="prop-section__art" aria-hidden="true"></div>
+  <div class="container">
+    <header class="prop-section__intro">
+      <span class="eyebrow">أعمالنا</span>
+      <h2 id="home-projects-ar-title">المشاريع</h2>
+      <p class="lede">وحدات سكنية وتجارية لمطوّرين في جدة — احجز معاينة أو اطلب كراسة المشروع.</p>
+    </header>
+    <div class="prop-section__bar">
+      <div class="prop-tabs" role="tablist" aria-label="تصنيف"><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="all" aria-selected="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>الكل</span><small>(6)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="apartments" aria-selected="false"><i class="fa-solid fa-building" aria-hidden="true"></i><span>شقق سكنية</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="commercial" aria-selected="false"><i class="fa-solid fa-store" aria-hidden="true"></i><span>وحدات تجارية</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="villas" aria-selected="false"><i class="fa-solid fa-house" aria-hidden="true"></i><span>فلل مستقلة</span><small>(1)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="compound" aria-selected="false"><i class="fa-solid fa-city" aria-hidden="true"></i><span>مجمع سكني</span><small>(1)</small></button></div>
+      <a class="prop-section__all" href="projects.html"><span>جميع المشاريع</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+    </div>
+    <div class="prop-carousel" data-prop-carousel role="region" aria-roledescription="carousel" aria-label="شريط المشاريع" tabindex="0">
+      <div class="prop-carousel__viewport">
+        <article class="prop-card prop-card--project" data-card data-status="construction" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/property-01.jpg" alt="مشروع عقاري" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">شقق سكنية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الشاطئ</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coastal-residences">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">تحت الإنشاء</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coastal-residences"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="construction" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/property-02.jpg" alt="مشروع عقاري" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">وحدات تجارية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · أبحر الشمالية</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=north-commercial">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">تحت الإنشاء</span></p>
+            <a class="prop-card__more" href="project-details.html?project=north-commercial"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="completed" data-type="villas">
+          <img class="prop-card__img" src="assets/images/real-estate/property-03.jpg" alt="مشروع عقاري" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">فلل مستقلة</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الروضة</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=rawda-villas">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">مكتمل</span></p>
+            <a class="prop-card__more" href="project-details.html?project=rawda-villas"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="completed" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-01.jpg" alt="مشروع عقاري" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">شقق سكنية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي السلامة</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=salama-apartments">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">مكتمل</span></p>
+            <a class="prop-card__more" href="project-details.html?project=salama-apartments"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="soon" data-type="compound">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مشروع عقاري" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">مجمع سكني</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-compound">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">قريبًا</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-compound"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="soon" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-03.jpg" alt="مشروع عقاري" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">وحدات تجارية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-commercial">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">قريبًا</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-commercial"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article>
+      </div>
+      <button class="prop-carousel__nav prop-carousel__nav--prev" type="button" data-prop-prev aria-label="السابق"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      <button class="prop-carousel__nav prop-carousel__nav--next" type="button" data-prop-next aria-label="التالي"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+      <div class="prop-carousel__footer">
+        <p class="prop-carousel__counter" aria-live="polite"><b data-prop-current>01</b><span>/</span><span data-prop-total>06</span></p>
+        <div class="prop-carousel__dots" data-prop-dots></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gallery"><div class="container"><div class="section-head"><span class="eyebrow">معرض عقار ونّ</span><h2>تفاصيل عقارية تُرى قبل أن تُوصف</h2><p class="lede">لقطات من المشروعات والواجهات والمساحات التي نعمل على تقديمها وتجهيزها للعملاء.</p></div><div class="home-gallery reveal-stagger"><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/hero-01.jpg" alt="مشهد عقاري عند الغروب" loading="lazy"><div class="gallery-caption"><span>مشروعات</span><strong>واجهات ومواقع مختارة</strong></div></a><a class="gallery-item" href="project-details.html?project=coastal-residences"><img src="assets/images/real-estate/property-01.jpg" alt="مشروع سكني" loading="lazy"><div class="gallery-caption"><span>سكني</span><strong>تفاصيل المشروع</strong></div></a><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/property-02.jpg" alt="مساحات تجارية" loading="lazy"><div class="gallery-caption"><span>تجاري</span><strong>مساحات مصممة للفرص</strong></div></a></div></div></section>
+
+<section class="section trust-editorial" data-trust-editorial aria-labelledby="trust-editorial-title-ar">
+  <div class="container">
+    <div class="section-head center trust-editorial__head">
+      <span class="eyebrow">الثقة تبدأ من الاعتماد</span>
+      <h2 id="trust-editorial-title-ar">موثوقون ومرخّصون</h2>
+      <p class="lede">نعمل وفق تراخيص وتصاريح رسمية، وهذه أبرز الاعتمادات التي نستند إليها.</p>
+    </div>
+    <ul class="trust-editorial__list" aria-label="الاعتمادات والتراخيص">
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></span>
+        <h3 class="trust-editorial__name">مصنّفة من الهيئة العامة للعقار</h3>
+        <p class="trust-editorial__desc">ترخيص رقم XX</p>
+      </li>
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
+        <h3 class="trust-editorial__name">وكيل بيع قضائي</h3>
+        <p class="trust-editorial__desc">وفق التصاريح الصادرة — XX</p>
+      </li>
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-certificate"></i></span>
+        <h3 class="trust-editorial__name">شهادات واعتمادات</h3>
+        <p class="trust-editorial__desc">[[أسماء الشهادات]]</p>
+      </li>
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-city"></i></span>
+        <h3 class="trust-editorial__name">خبرة منذ 2011</h3>
+        <p class="trust-editorial__desc">فرعان في جدة</p>
+      </li>
+    </ul>
+    <p class="trust-editorial__line">اعتمادات وشراكات تعكس التزامنا بالموثوقية</p>
   </div>
 </section>
 
@@ -124,241 +498,50 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section journal-editorial" data-journal-editorial aria-labelledby="journal-editorial-title-ar">
   <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">ثلاثة مسارات</span>
-      <h2>ابدأ من المسار الذي يخصّك</h2>
-      <p class="lede">هذه ليست قائمة خدمات — بل ثلاثة مداخل، كل واحد يأخذك إلى صفحة مختلفة وإجراء مختلف.</p>
-    </div>
-    <div class="grid grid-3 reveal-stagger">
-      <div class="card"><div class="card-body"><h3>قائمة المزادات</h3><p>مزادات علنية وإلكترونية بإشراف نظامي. تصفّح المزادات القادمة واطّلع على كراسة الشروط ومتطلبات المشاركة قبل التسجيل.</p>
-        <a class="btn-ghost cluster" href="auctions.html">تفاصيل المزادات<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></div></div><div class="card"><div class="card-body"><h3>وساطة عقارية</h3><p>عندك عقار للبيع أو تبحث عن أصل محدد؟ سجّل متطلباتك ويتولّى فريق الوساطة التقييم والتفاوض حتى الإفراغ.</p>
-        <a class="btn-ghost cluster" href="contact.html">سجّل متطلباتك<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></div></div><div class="card"><div class="card-body"><h3>التسويق العقاري</h3><p>نُدير تسويق مشروعات المطوّرين: دراسة السوق، تسعير الوحدات، إدارة الحملات، وفريق مبيعات ميداني.</p>
-        <a class="btn-ghost cluster" href="project-marketing.html">تعرف على الخدمة<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">المزادات</span>
-      <h2>المزادات القادمة</h2>
-      <p class="lede">مواعيد المزادات بالتاريخ الميلادي والهجري. التسجيل يتم على منصة المزادات المعتمدة.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal" data-card data-status="live" data-city="jeddah" data-type="land">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="مزاد أراضي أبحر الشمالية" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-live">جارٍ الآن</span>
-      <h3 style="margin-block-start:12px">مزاد أراضي أبحر الشمالية</h3>
-      <div class="card-meta">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · أبحر الشمالية</span>
-        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>12 أغسطس 2026</span>
+    <header class="journal-editorial__head">
+      <div class="journal-editorial__intro">
+        <span class="eyebrow">المعرفة العقارية</span>
+        <h2 id="journal-editorial-title-ar">مقالات تشرح الإجراءات</h2>
+        <p class="lede">شرح عملي للمزادات والوساطة والتسويق: ما المستندات المطلوبة، وكيف تُتخذ القرارات، وأين تحدث التأخيرات.</p>
       </div>
-      <p>18 صفر 1448 · 5:00 م · XX وحدة</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="auction-details.html">تفاصيل المزاد</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="open" data-city="jeddah" data-type="buildings">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="مزاد عمائر حي الصفا" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">التسجيل مفتوح</span>
-      <h3 style="margin-block-start:12px">مزاد عمائر حي الصفا</h3>
-      <div class="card-meta">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الصفا</span>
-        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>26 أغسطس 2026</span>
-      </div>
-      <p>3 ربيع الأول 1448 · 6:00 م · XX وحدة</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="auction-details.html">تفاصيل المزاد</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="open" data-city="jeddah" data-type="warehouses">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="مزاد مستودعات المنطقة الصناعية" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">التسجيل مفتوح</span>
-      <h3 style="margin-block-start:12px">مزاد مستودعات المنطقة الصناعية</h3>
-      <div class="card-meta">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · المنطقة الصناعية الثانية</span>
-        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>9 سبتمبر 2026</span>
-      </div>
-      <p>17 ربيع الأول 1448 · 5:30 م · XX وحدة</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="auction-details.html">تفاصيل المزاد</a>
-      </div>
-    </div>
-  </div>
-    </div>
-    <div class="text-center" style="margin-block-start:32px">
-      <a class="btn btn-outline" href="auctions.html">تحميل المزيد</a>
-    </div>
-    <p class="helper text-center" style="margin-block-start:20px;max-width:60ch;margin-inline:auto">التسجيل والمزايدة يتمّان على منصة [[اسم منصة المزادات]] — ستنتقل إلى موقع خارجي لإتمام التسجيل.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">آلية العمل</span>
-      <h2>أربع خطوات واضحة</h2>
-      <p class="lede">نفس المسار في المزادات والوساطة والتسويق — تختلف التفاصيل ولا يختلف الترتيب.</p>
-    </div>
-    <div class="process reveal-stagger">
-    <div class="process-step"><span class="num">01</span><h4>الطلب والتقييم</h4><p>تُرسل متطلباتك أو بيانات العقار، ويتولّى الفريق فحص الوضع النظامي والصكوك والتقييم السوقي.</p></div><div class="process-step"><span class="num">02</span><h4>التجهيز والتوثيق</h4><p>إعداد كراسة الشروط أو ملف العرض، وتحديد آلية البيع وشروط المشاركة والمواعيد.</p></div><div class="process-step"><span class="num">03</span><h4>العرض والتسويق</h4><p>نشر المزاد أو المشروع، وإدارة الاستفسارات والمعاينات حتى موعد البيع.</p></div><div class="process-step"><span class="num">04</span><h4>الترسية والإفراغ</h4><p>استكمال السداد وإجراءات النقل لدى الجهات المختصة، وتسليم المستندات للمالك الجديد.</p></div>
-  </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">خدماتنا</span>
-      <h2>ما نقدّمه بالتفصيل</h2>
-      <p class="lede">أربع خدمات تحت مظلّة واحدة، وفريق واحد يتابع الملف من التقييم حتى الإفراغ.</p>
-    </div>
-    <div class="grid grid-4 reveal-stagger">
-      <div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">تنظيم وإدارة المزادات</h3>
-      <p>مزادات ملّاك وجهات حكومية وبيوع قضائية: التجهيز، كراسة الشروط، إدارة القاعة والمنصة، والترسية.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="auction-management.html">تعرف على الخدمة<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div><div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">الوساطة والتفاوض</h3>
-      <p>تمثيل البائع أو المشتري في الأراضي والعمائر والوحدات التجارية، مع متابعة الإفراغ.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="brokerage.html">تعرف على الخدمة<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div><div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">تسويق المشروعات</h3>
-      <p>خطة تسويق كاملة للمطوّر: التسعير، الهوية البيعية، الحملات الرقمية، وفريق المبيعات.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="project-marketing.html">تعرف على الخدمة<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div><div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">الاستشارات والتقييم</h3>
-      <p>دراسات جدوى ورأي فني في القيمة السوقية وأفضل استخدام للأصل قبل قرار البيع.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="consulting.html">تعرف على الخدمة<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">المشروعات</span>
-      <h2>مشروعات نسوّقها</h2>
-      <p class="lede">وحدات سكنية وتجارية لمطوّرين في جدة — احجز معاينة أو اطلب كراسة المشروع.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal" data-card data-status="construction" data-type="apartments">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">تحت الإنشاء</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الشاطئ</span></div>
-      <p>شقق سكنية</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=coastal-residences">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="construction" data-type="commercial">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">تحت الإنشاء</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · أبحر الشمالية</span></div>
-      <p>وحدات تجارية</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=coastal-residences">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="completed" data-type="villas">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">مكتمل</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الروضة</span></div>
-      <p>فلل مستقلة</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=coastal-residences">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-gallery"><div class="container"><div class="section-head"><span class="eyebrow">معرض عقار ونّ</span><h2>تفاصيل عقارية تُرى قبل أن تُوصف</h2><p class="lede">لقطات من المشروعات والواجهات والمساحات التي نعمل على تقديمها وتجهيزها للعملاء.</p></div><div class="home-gallery reveal-stagger"><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/hero-01.jpg" alt="مشهد عقاري عند الغروب" loading="lazy"><div class="gallery-caption"><span>مشروعات</span><strong>واجهات ومواقع مختارة</strong></div></a><a class="gallery-item" href="project-details.html?project=coastal-residences"><img src="assets/images/real-estate/property-01.jpg" alt="مشروع سكني" loading="lazy"><div class="gallery-caption"><span>سكني</span><strong>تفاصيل المشروع</strong></div></a><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/property-02.jpg" alt="مساحات تجارية" loading="lazy"><div class="gallery-caption"><span>تجاري</span><strong>مساحات مصممة للفرص</strong></div></a></div></div></section>
-
-<section class="section section-dark">
-  <div class="container">
-    <div class="section-head center"><h2>موثوقون ومرخّصون</h2></div>
-    <div class="check-grid reveal-stagger">
-    <div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>مصنّفة من الهيئة العامة للعقار</h4><p>ترخيص رقم XX</p></div></div><div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>وكيل بيع قضائي</h4><p>وفق التصاريح الصادرة — XX</p></div></div><div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>شهادات واعتمادات</h4><p>[[أسماء الشهادات]]</p></div></div><div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>خبرة منذ 2011</h4><p>فرعان في جدة</p></div></div>
-  </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">المدونة</span>
-      <h2>مقالات تشرح الإجراءات</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal" data-category="auctions">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="كيف تقرأ كراسة الشروط قبل المشاركة في مزاد" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">مزادات</span>
-      <h3 style="margin-block-start:12px">كيف تقرأ كراسة الشروط قبل المشاركة في مزاد</h3>
-      <p class="card-meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>12 يوليو 2026</span></p>
-      <p>الكراسة ليست ورقة إجرائية — هي العقد الذي يحدّد التزاماتك بعد الترسية. نمرّ على البنود التي تُقرأ بعناية: وصف العقار، حالة الصك، مدة السداد، والاستبعادات.</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="blog-post.html?article=terms-booklet">اقرأ المقال</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-category="brokerage">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="مستندات البيع والإفراغ: قائمة تحقّق للمالك" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">وساطة</span>
-      <h3 style="margin-block-start:12px">مستندات البيع والإفراغ: قائمة تحقّق للمالك</h3>
-      <p class="card-meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>28 يونيو 2026</span></p>
-      <p>ما تحتاجه قبل عرض عقارك للبيع، ومن يصدر كل مستند، وأين تحدث أطول فترات التأخير.</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="blog-post.html?article=sale-documents">اقرأ المقال</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-category="marketing">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="تسعير الوحدات في مشروع جديد" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">تسويق</span>
-      <h3 style="margin-block-start:12px">تسعير الوحدات في مشروع جديد</h3>
-      <p class="card-meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>9 يونيو 2026</span></p>
-      <p>كيف يُبنى جدول الأسعار على بيانات الحي ومعدل الامتصاص بدل المقارنة السطحية.</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="blog-post.html?article=pricing-units">اقرأ المقال</a>
-      </div>
-    </div>
-  </div>
+      <a class="journal-editorial__all" href="blog.html"><span>جميع المقالات</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+    </header>
+    <div class="journal-editorial__grid">
+      <article class="journal-editorial__item" data-category="auctions">
+        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-01.jpg" alt="كيف تقرأ كراسة الشروط قبل المشاركة في مزاد" loading="lazy" decoding="async"></figure>
+        <div class="journal-editorial__meta"><span class="journal-editorial__cat">مزادات</span><time datetime="2026-07-12">12 يوليو 2026</time></div>
+        <h3 class="journal-editorial__title"><a href="blog-post.html?article=terms-booklet">كيف تقرأ كراسة الشروط قبل المشاركة في مزاد</a></h3>
+        <p class="journal-editorial__desc">الكراسة ليست ورقة إجرائية — هي العقد الذي يحدّد التزاماتك بعد الترسية. نمرّ على البنود التي تُقرأ بعناية: وصف العقار، حالة الصك، مدة السداد، والاستبعادات.</p>
+        <span class="journal-editorial__more" aria-hidden="true">
+        <a href="blog-post.html?article=terms-booklet">
+          <span>اقرأ المقال</span><i class="fa-solid fa-arrow-left"></i>
+        </a>
+        
+        </span>
+      </article>
+      <article class="journal-editorial__item" data-category="brokerage">
+        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-02.jpg" alt="مستندات البيع والإفراغ: قائمة تحقّق للمالك" loading="lazy" decoding="async"></figure>
+        <div class="journal-editorial__meta"><span class="journal-editorial__cat">وساطة</span><time datetime="2026-06-28">28 يونيو 2026</time></div>
+        <h3 class="journal-editorial__title"><a href="blog-post.html?article=sale-documents">مستندات البيع والإفراغ: قائمة تحقّق للمالك</a></h3>
+        <p class="journal-editorial__desc">ما تحتاجه قبل عرض عقارك للبيع، ومن يصدر كل مستند، وأين تحدث أطول فترات التأخير.</p>
+        <span class="journal-editorial__more" aria-hidden="true">
+         <a href="blog-post.html?article=terms-booklet">
+          <span>اقرأ المقال</span><i class="fa-solid fa-arrow-left"></i>
+        </a>
+        </span>
+      </article>
+      <article class="journal-editorial__item" data-category="marketing">
+        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-03.jpg" alt="تسعير الوحدات في مشروع جديد" loading="lazy" decoding="async"></figure>
+        <div class="journal-editorial__meta"><span class="journal-editorial__cat">تسويق</span><time datetime="2026-06-09">9 يونيو 2026</time></div>
+        <h3 class="journal-editorial__title"><a href="blog-post.html?article=pricing-units">تسعير الوحدات في مشروع جديد</a></h3>
+        <p class="journal-editorial__desc">كيف يُبنى جدول الأسعار على بيانات الحي ومعدل الامتصاص بدل المقارنة السطحية.</p>
+        <span class="journal-editorial__more" aria-hidden="true">
+           <a href="blog-post.html?article=terms-booklet">
+          <span>اقرأ المقال</span><i class="fa-solid fa-arrow-left"></i>
+        </a></span>
+      </article>
     </div>
   </div>
 </section>
@@ -398,68 +581,411 @@
 </div>
 <div class="i18n-block" data-lang="en" hidden>
 
-<section class="hero hero-slider" data-hero-slider aria-label="Aqar One highlights">
-  <div class="hero-slides">
-    <article class="hero-slide is-active" data-slide="0">
-      <img class="hero-slide-media" src="assets/images/real-estate/hero-01.jpg" alt="Premium property with an urban sunset view" fetchpriority="high">
-      <div class="hero-slide-overlay"></div>
-      <div class="container hero-slide-content">
-        <span class="eyebrow">Auctions · Brokerage · Project Marketing</span>
-        <h1>Trusted real estate, with a clear journey from listing to transfer</h1>
-        <p class="lede">A Saudi real estate group in Jeddah. We manage auctions, brokerage and developer marketing with a clear, disciplined process.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="auctions.html">Browse Auctions<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-          <a class="btn btn-outline hero-outline" href="contact.html">Register Your Requirements</a>
-        </div>
-      </div>
-    </article>
-    <article class="hero-slide" data-slide="1">
-      <img class="hero-slide-media" src="assets/images/real-estate/hero-02.jpg" alt="Modern urban development and real estate projects" loading="lazy">
-      <div class="hero-slide-overlay"></div>
-      <div class="container hero-slide-content">
-        <span class="eyebrow">Projects · Development · Value</span>
-        <h2>Turning real estate projects into clear, market-ready opportunities</h2>
-        <p class="lede">From market research and pricing to campaigns and field sales, we connect projects with the right audience.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="project-marketing.html">Explore Project Marketing<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-          <a class="btn btn-outline hero-outline" href="projects.html">View Projects</a>
-        </div>
-      </div>
-    </article>
-    <article class="hero-slide" data-slide="2">
-      <img class="hero-slide-media" src="assets/images/real-estate/hero-03.jpg" alt="Architectural detail and premium property view" loading="lazy">
-      <div class="hero-slide-overlay"></div>
-      <div class="container hero-slide-content">
-        <span class="eyebrow">Experience since 2011</span>
-        <h2>Calmer decisions, clearer data, and more precise execution</h2>
-        <p class="lede">Experience across auctions, brokerage, marketing and consulting to help you take the next step with confidence.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="contact.html">Talk to Our Team<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-          <a class="btn btn-outline hero-outline" href="about.html">About Aqar One</a>
-        </div>
-      </div>
-    </article>
-  </div>
-  <div class="hero-slider-ui container">
-    <div class="hero-counter"><strong data-hero-current>01</strong><span>/</span><span>03</span></div>
-    <div class="hero-dots" role="tablist" aria-label="Hero slides">
-      <button class="hero-dot is-active" type="button" role="tab" data-hero-dot="0" aria-label="Slide one" aria-selected="true"></button>
-      <button class="hero-dot" type="button" role="tab" data-hero-dot="1" aria-label="Slide two" aria-selected="false"></button>
-      <button class="hero-dot" type="button" role="tab" data-hero-dot="2" aria-label="Slide three" aria-selected="false"></button>
+
+<section class="section-sm stats-editorial" data-stats-editorial aria-labelledby="stats-editorial-title-en">
+  <div class="stats-editorial__bg" aria-hidden="true"></div>
+  <div class="container stats-editorial__inner">
+    <div class="stats-editorial__intro">
+      <span class="eyebrow stats-editorial__eyebrow">Experience since 2011</span>
+      <h2 class="stats-editorial__title" id="stats-editorial-title-en">Calmer real estate decisions, clearer data, sharper execution</h2>
+      <p class="stats-editorial__text">Accumulated experience across auctions, brokerage, marketing and consulting helps you take the next step with confidence.</p>
     </div>
-    <div class="hero-slider-controls">
-      <button type="button" class="hero-arrow" data-hero-prev aria-label="Previous slide"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-      <button type="button" class="hero-arrow" data-hero-next aria-label="Next slide"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-    </div>
+    <ul class="stats-editorial__list" aria-label="Aqar One in numbers">
+      <li class="stats-editorial__item"><i class="fa-regular fa-calendar stats-editorial__icon" aria-hidden="true"></i><b class="stats-editorial__num">2011</b><span class="stats-editorial__label">Year Founded</span></li>
+      <li class="stats-editorial__item"><i class="fa-solid fa-gavel stats-editorial__icon" aria-hidden="true"></i><b class="stats-editorial__num"><span data-count="180">180</span><span class="stats-editorial__plus">+</span></b><span class="stats-editorial__label">Auctions Organized to Date</span></li>
+      <li class="stats-editorial__item"><i class="fa-regular fa-building stats-editorial__icon" aria-hidden="true"></i><b class="stats-editorial__num"><span data-count="42">42</span><span class="stats-editorial__plus">+</span></b><span class="stats-editorial__label">Projects Marketed for Developers</span></li>
+    </ul>
   </div>
-  <div class="hero-scroll-hint" aria-hidden="true"><span></span><em>Scroll</em></div>
 </section>
 
-<section class="section-sm">
-  <div class="container">
-    <div class="stats-strip reveal-stagger">
-    <div class="stat"><b>2011</b><span>Year Founded</span></div><div class="stat"><b data-count="180">0</b><span>Auctions Organized to Date</span></div><div class="stat"><b data-count="42">0</b><span>Projects Marketed for Developers</span></div>
+<section class="section section-services services-editorial" data-services-editorial aria-labelledby="services-editorial-title-en">
+  <div class="container services-editorial__inner">
+    <div class="services-editorial__intro">
+      <span class="eyebrow services-editorial__eyebrow">Our Services</span>
+      <h2 class="services-editorial__heading" id="services-editorial-title-en">What We Offer, in Detail</h2>
+      <p class="services-editorial__text">Four services under one roof, and one team following the file from valuation to title transfer.</p>
+    </div>
+    <ol class="services-editorial__list" aria-label="Services list">
+      <li class="services-editorial__row">
+        <a class="services-editorial__item is-active" href="auction-management.html" data-service-index="0" aria-current="true">
+          <span class="services-editorial__num">01</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-gavel"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">Auction Management</span><span class="services-editorial__desc">Owner, government-entity and judicial-sale auctions: preparation, terms booklet, hall/platform management, and the award.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </li>
+      <li class="services-editorial__row">
+        <a class="services-editorial__item" href="brokerage.html" data-service-index="1">
+          <span class="services-editorial__num">02</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">Brokerage & Negotiation</span><span class="services-editorial__desc">Representing sellers or buyers in land, buildings and commercial units, with follow-through to title transfer.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </li>
+      <li class="services-editorial__row">
+        <a class="services-editorial__item" href="project-marketing.html" data-service-index="2">
+          <span class="services-editorial__num">03</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">Project Marketing</span><span class="services-editorial__desc">A complete marketing plan for developers: pricing, sales identity, digital campaigns, and the sales team.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </li>
+      <li class="services-editorial__row">
+        <a class="services-editorial__item" href="consulting.html" data-service-index="3">
+          <span class="services-editorial__num">04</span>
+          <span class="services-editorial__icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="services-editorial__body"><span class="services-editorial__title">Advisory & Valuation</span><span class="services-editorial__desc">Feasibility studies and a technical opinion on market value and best use of the asset before a sale decision.</span></span>
+          <span class="services-editorial__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </li>
+    </ol>
+    <div class="services-editorial__media">
+      <img class="services-editorial__img is-active" src="assets/images/real-estate/service-01.jpg" alt="Aerial view of land plots and villas in a developing district" width="1280" height="720" loading="lazy" decoding="async" data-service-image="0">
+      <img class="services-editorial__img" src="assets/images/real-estate/service-02.jpg" alt="Residential neighbourhood of modern villas and gardens" width="1280" height="720" loading="lazy" decoding="async" data-service-image="1" aria-hidden="true">
+      <img class="services-editorial__img" src="assets/images/real-estate/service-03.jpg" alt="Commercial boulevard between modern office towers" width="1280" height="720" loading="lazy" decoding="async" data-service-image="2" aria-hidden="true">
+      <img class="services-editorial__img" src="assets/images/real-estate/service-04.jpg" alt="Facade detail of a modern tower in glass and metal" width="1280" height="720" loading="lazy" decoding="async" data-service-image="3" aria-hidden="true">
+    </div>
   </div>
+</section>
+
+<section class="section paths-editorial" data-paths-editorial>
+  <div class="paths-editorial__topo" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head center paths-editorial__head">
+      <span class="eyebrow">Three Paths</span>
+      <h2>Start From the Path That Fits You</h2>
+      <p class="lede">This isn't a services list — it's three entry points, each leading to a different page and a different action.</p>
+    </div>
+    <div class="paths-editorial__tree">
+      <span class="paths-editorial__node" aria-hidden="true"></span>
+      <svg class="paths-editorial__branches" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="paths-editorial__branch" d="M600 0 C600 44 200 36 200 80" pathLength="1"/>
+        <path class="paths-editorial__branch" d="M600 0 L600 80" pathLength="1"/>
+        <path class="paths-editorial__branch" d="M600 0 C600 44 1000 36 1000 80" pathLength="1"/>
+      </svg>
+      <ol class="paths-editorial__list">
+      <li class="paths-editorial__path">
+        <div class="paths-editorial__meta"><span class="paths-editorial__num">01</span><span class="paths-editorial__icon" aria-hidden="true"><i class="fa-solid fa-gavel"></i></span></div>
+        <figure class="paths-editorial__media"><img src="assets/images/real-estate/hero-video-poster.jpg" alt="Aerial view of a city and developing districts" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+        <h3 class="paths-editorial__title">Auctions List</h3>
+        <p class="paths-editorial__desc">Public and electronic auctions under regulatory oversight. Browse upcoming auctions and review the terms booklet and participation requirements before registering.</p>
+        <a class="paths-editorial__cta" href="auctions.html">Auction Details<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </li>
+      <li class="paths-editorial__path">
+        <div class="paths-editorial__meta"><span class="paths-editorial__num">02</span><span class="paths-editorial__icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span></div>
+        <figure class="paths-editorial__media"><img src="assets/images/real-estate/hero-01.jpg" alt="Residential balcony overlooking the city at sunset" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+        <h3 class="paths-editorial__title">Real Estate Brokerage</h3>
+        <p class="paths-editorial__desc">Have a property to sell, or looking for a specific asset? Register your requirements and the brokerage team handles valuation and negotiation to closing.</p>
+        <a class="paths-editorial__cta" href="contact.html">Register Your Requirements<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </li>
+      <li class="paths-editorial__path">
+        <div class="paths-editorial__meta"><span class="paths-editorial__num">03</span><span class="paths-editorial__icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span></div>
+        <figure class="paths-editorial__media"><img src="assets/images/real-estate/hero-02.jpg" alt="Towers under construction in a development project" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+        <h3 class="paths-editorial__title">Project Marketing</h3>
+        <p class="paths-editorial__desc">We run project marketing for developers: market research, unit pricing, campaign management, and a field sales team.</p>
+        <a class="paths-editorial__cta" href="project-marketing.html">Learn More<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section process-journey" data-process-journey>
+  <div class="container">
+    <div class="section-head center process-journey__head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Four Clear Steps</h2>
+      <p class="lede">The same path applies to auctions, brokerage and marketing — the details differ, the order doesn't.</p>
+    </div>
+    <ol class="process-journey__list">
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(-90 100 100)"/>
+          </svg>
+          <span class="process-journey__num">01</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">Request & Assessment</h3>
+          <p class="process-journey__desc">You send your requirements or property details, and the team reviews the legal status, title deed and market value.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-regular fa-file-lines"></i></div>
+        <span class="process-journey__link" aria-hidden="true"></span>
+      </li>
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(0 100 100)"/>
+          </svg>
+          <span class="process-journey__num">02</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">Preparation & Documentation</h3>
+          <p class="process-journey__desc">Preparing the terms booklet or offering file, setting the sale mechanism, participation terms and dates.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-solid fa-compass-drafting"></i></div>
+        <span class="process-journey__link" aria-hidden="true"></span>
+      </li>
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(90 100 100)"/>
+          </svg>
+          <span class="process-journey__num">03</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">Listing & Marketing</h3>
+          <p class="process-journey__desc">Publishing the auction or project, and managing inquiries and viewings up to the sale date.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
+        <span class="process-journey__link" aria-hidden="true"></span>
+      </li>
+      <li class="process-journey__step" data-process-step>
+        <div class="process-journey__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle class="process-journey__orbit" cx="100" cy="100" r="97" pathLength="1"/>
+            <circle class="process-journey__orbit process-journey__orbit--dash" cx="100" cy="100" r="86"/>
+            <circle class="process-journey__arc" cx="100" cy="100" r="74" pathLength="1" transform="rotate(180 100 100)"/>
+          </svg>
+          <span class="process-journey__num">04</span>
+        </div>
+        <div class="process-journey__body">
+          <h3 class="process-journey__title">Award & Title Transfer</h3>
+          <p class="process-journey__desc">Completing payment and transfer procedures with the relevant authorities, and delivering documents to the new owner.</p>
+        </div>
+        <div class="process-journey__icon" aria-hidden="true"><i class="fa-solid fa-key"></i></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section prop-section prop-section--auctions" data-prop-section aria-labelledby="home-auctions-en-title">
+  <div class="prop-section__art" aria-hidden="true"></div>
+  <div class="container">
+    <header class="prop-section__intro">
+      <span class="eyebrow">Opportunities</span>
+      <h2 id="home-auctions-en-title">Auctions</h2>
+      <p class="lede">Auction dates shown in Gregorian and Hijri. Registration takes place on the approved auction platform.</p>
+    </header>
+    <div class="prop-section__bar">
+      <div class="prop-tabs" role="tablist" aria-label="Filter"><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="all" aria-selected="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>All</span><small>(6)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="live" aria-selected="false"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i><span>Live Now</span><small>(1)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="open" aria-selected="false"><i class="fa-solid fa-door-open" aria-hidden="true"></i><span>Registration Open</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="upcoming" aria-selected="false"><i class="fa-solid fa-clock" aria-hidden="true"></i><span>Upcoming</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="closed" aria-selected="false"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Registration Closed</span><small>(1)</small></button></div>
+      <a class="prop-section__all" href="auctions.html"><span>All Auctions</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="prop-carousel" data-prop-carousel role="region" aria-roledescription="carousel" aria-label="Auctions carousel" tabindex="0">
+      <div class="prop-carousel__viewport">
+        <article class="prop-card prop-card--auction" data-card data-status="live" data-city="jeddah" data-type="land">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="North Obhur Land Auction" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-live prop-card__badge prop-card__badge--status">Live Now</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-08-12T17:00:00" aria-label="Time remaining until the auction"><span><b data-cd-days>--</b> days</span><span><b data-cd-hours>--</b> hrs</span><span><b data-cd-mins>--</b> min</span><span class="prop-card__cd-date">Aug 12, 2026 · 5:00 PM</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · North Obhur</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">North Obhur Land Auction</a></h3>
+            <p class="prop-card__desc">Aug 12, 2026 · 18 Safar 1448 · 5:00 PM</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX units</span><a class="prop-card__more" href="auction-details.html"><span>Auction Details</span><i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="open" data-city="jeddah" data-type="buildings">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="Al Safa District Buildings Auction" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-open prop-card__badge prop-card__badge--status">Registration Open</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-08-26T18:00:00" aria-label="Time remaining until the auction"><span><b data-cd-days>--</b> days</span><span><b data-cd-hours>--</b> hrs</span><span><b data-cd-mins>--</b> min</span><span class="prop-card__cd-date">Aug 26, 2026 · 6:00 PM</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Safa</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">Al Safa District Buildings Auction</a></h3>
+            <p class="prop-card__desc">Aug 26, 2026 · 3 Rabi I 1448 · 6:00 PM</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX units</span><a class="prop-card__more" href="auction-details.html"><span>Auction Details</span><i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="open" data-city="jeddah" data-type="warehouses">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="Industrial Area Warehouses Auction" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-open prop-card__badge prop-card__badge--status">Registration Open</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-09-09T17:30:00" aria-label="Time remaining until the auction"><span><b data-cd-days>--</b> days</span><span><b data-cd-hours>--</b> hrs</span><span><b data-cd-mins>--</b> min</span><span class="prop-card__cd-date">Sep 9, 2026 · 5:30 PM</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Second Industrial City</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">Industrial Area Warehouses Auction</a></h3>
+            <p class="prop-card__desc">Sep 9, 2026 · 17 Rabi I 1448 · 5:30 PM</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX units</span><a class="prop-card__more" href="auction-details.html"><span>Auction Details</span><i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="upcoming" data-city="jeddah" data-type="land">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="East Jeddah Land Auction" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-upcoming prop-card__badge prop-card__badge--status">Upcoming</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-09-23T17:00:00" aria-label="Time remaining until the auction"><span><b data-cd-days>--</b> days</span><span><b data-cd-hours>--</b> hrs</span><span><b data-cd-mins>--</b> min</span><span class="prop-card__cd-date">Sep 23, 2026 · 5:00 PM</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">East Jeddah Land Auction</a></h3>
+            <p class="prop-card__desc">Sep 23, 2026 · 1 Rabi II 1448 · 5:00 PM</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX units</span><a class="prop-card__more" href="auction-details.html"><span>Auction Details</span><i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="upcoming" data-city="jeddah" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="Commercial Units Auction" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-upcoming prop-card__badge prop-card__badge--status">Upcoming</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-10-07T18:00:00" aria-label="Time remaining until the auction"><span><b data-cd-days>--</b> days</span><span><b data-cd-hours>--</b> hrs</span><span><b data-cd-mins>--</b> min</span><span class="prop-card__cd-date">Oct 7, 2026 · 6:00 PM</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">Commercial Units Auction</a></h3>
+            <p class="prop-card__desc">Oct 7, 2026 · 15 Rabi II 1448 · 6:00 PM</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX units</span><a class="prop-card__more" href="auction-details.html"><span>Auction Details</span><i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+        </article>
+        <article class="prop-card prop-card--auction" data-card data-status="closed" data-city="jeddah" data-type="buildings">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="North Jeddah Buildings Auction" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="badge badge-closed prop-card__badge prop-card__badge--status">Registration Closed</span>
+          <div class="prop-card__body">
+            <div class="prop-card__countdown" data-countdown="2026-10-21T17:30:00" aria-label="Time remaining until the auction"><span><b data-cd-days>--</b> days</span><span><b data-cd-hours>--</b> hrs</span><span><b data-cd-mins>--</b> min</span><span class="prop-card__cd-date">Oct 21, 2026 · 5:30 PM</span></div>
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="auction-details.html">North Jeddah Buildings Auction</a></h3>
+            <p class="prop-card__desc">Oct 21, 2026 · 29 Rabi II 1448 · 5:30 PM</p>
+            <div class="prop-card__foot"><span class="prop-card__units">XX units</span><a class="prop-card__more" href="auction-details.html"><span>Auction Details</span><i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+        </article>
+      </div>
+      <button class="prop-carousel__nav prop-carousel__nav--prev" type="button" data-prop-prev aria-label="Previous"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+      <button class="prop-carousel__nav prop-carousel__nav--next" type="button" data-prop-next aria-label="Next"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      <div class="prop-carousel__footer">
+        <p class="prop-carousel__counter" aria-live="polite"><b data-prop-current>01</b><span>/</span><span data-prop-total>06</span></p>
+        <div class="prop-carousel__dots" data-prop-dots></div>
+      </div>
+    </div>
+    <p class="prop-section__note">Registration and bidding take place on the [[auction platform name]] platform — you'll be redirected to an external site to complete registration.</p>
+  </div>
+</section>
+
+<section class="section prop-section prop-section--projects" data-prop-section aria-labelledby="home-projects-en-title">
+  <div class="prop-section__art" aria-hidden="true"></div>
+  <div class="container">
+    <header class="prop-section__intro">
+      <span class="eyebrow">Our Work</span>
+      <h2 id="home-projects-en-title">Projects</h2>
+      <p class="lede">Residential and commercial units for developers in Jeddah — book a viewing or request the project booklet.</p>
+    </header>
+    <div class="prop-section__bar">
+      <div class="prop-tabs" role="tablist" aria-label="Filter"><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="all" aria-selected="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>All</span><small>(6)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="apartments" aria-selected="false"><i class="fa-solid fa-building" aria-hidden="true"></i><span>Residential Apartments</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="commercial" aria-selected="false"><i class="fa-solid fa-store" aria-hidden="true"></i><span>Commercial Units</span><small>(2)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="villas" aria-selected="false"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Standalone Villas</span><small>(1)</small></button><button class="prop-tabs__tab" type="button" role="tab" data-prop-filter="compound" aria-selected="false"><i class="fa-solid fa-city" aria-hidden="true"></i><span>Residential Compound</span><small>(1)</small></button></div>
+      <a class="prop-section__all" href="projects.html"><span>All Projects</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="prop-carousel" data-prop-carousel role="region" aria-roledescription="carousel" aria-label="Projects carousel" tabindex="0">
+      <div class="prop-carousel__viewport">
+        <article class="prop-card prop-card--project" data-card data-status="construction" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/property-01.jpg" alt="Real estate project" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Residential Apartments</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Shati District</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coastal-residences">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">Under Construction</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coastal-residences"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="construction" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/property-02.jpg" alt="Real estate project" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Commercial Units</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · North Obhur</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=north-commercial">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">Under Construction</span></p>
+            <a class="prop-card__more" href="project-details.html?project=north-commercial"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="completed" data-type="villas">
+          <img class="prop-card__img" src="assets/images/real-estate/property-03.jpg" alt="Real estate project" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Standalone Villas</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Rawdah District</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=rawda-villas">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">Completed</span></p>
+            <a class="prop-card__more" href="project-details.html?project=rawda-villas"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="completed" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-01.jpg" alt="Real estate project" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Residential Apartments</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · As Salamah District</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=salama-apartments">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">Completed</span></p>
+            <a class="prop-card__more" href="project-details.html?project=salama-apartments"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="soon" data-type="compound">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="Real estate project" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Residential Compound</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-compound">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">Coming Soon</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-compound"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+        <article class="prop-card prop-card--project" data-card data-status="soon" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-03.jpg" alt="Real estate project" loading="eager" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Commercial Units</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-commercial">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">Coming Soon</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-commercial"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      <button class="prop-carousel__nav prop-carousel__nav--prev" type="button" data-prop-prev aria-label="Previous"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+      <button class="prop-carousel__nav prop-carousel__nav--next" type="button" data-prop-next aria-label="Next"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      <div class="prop-carousel__footer">
+        <p class="prop-carousel__counter" aria-live="polite"><b data-prop-current>01</b><span>/</span><span data-prop-total>06</span></p>
+        <div class="prop-carousel__dots" data-prop-dots></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gallery"><div class="container"><div class="section-head"><span class="eyebrow">Aqar One Gallery</span><h2>Real estate details, before the description</h2><p class="lede">A visual selection of projects, facades, and spaces we present to clients.</p></div><div class="home-gallery reveal-stagger"><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/hero-01.jpg" alt="Real estate scene at sunset" loading="lazy"><div class="gallery-caption"><span>Projects</span><strong>Selected locations and facades</strong></div></a><a class="gallery-item" href="project-details.html?project=coastal-residences"><img src="assets/images/real-estate/property-01.jpg" alt="Residential project" loading="lazy"><div class="gallery-caption"><span>Residential</span><strong>Explore the project</strong></div></a><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/property-02.jpg" alt="Commercial spaces" loading="lazy"><div class="gallery-caption"><span>Commercial</span><strong>Spaces designed for opportunity</strong></div></a></div></div></section>
+
+<section class="section trust-editorial" data-trust-editorial aria-labelledby="trust-editorial-title-en">
+  <div class="container">
+    <div class="section-head center trust-editorial__head">
+      <span class="eyebrow">Trust starts with accreditation</span>
+      <h2 id="trust-editorial-title-en">Trusted and Licensed</h2>
+      <p class="lede">We operate under official licenses and authorizations; these are the credentials we rely on.</p>
+    </div>
+    <ul class="trust-editorial__list" aria-label="Licenses and credentials">
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></span>
+        <h3 class="trust-editorial__name">Classified by the Real Estate General Authority</h3>
+        <p class="trust-editorial__desc">License No. XX</p>
+      </li>
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
+        <h3 class="trust-editorial__name">Judicial Sale Agent</h3>
+        <p class="trust-editorial__desc">Per issued authorizations — XX</p>
+      </li>
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-certificate"></i></span>
+        <h3 class="trust-editorial__name">Certifications & Accreditations</h3>
+        <p class="trust-editorial__desc">[[Certification names]]</p>
+      </li>
+      <li class="trust-editorial__item">
+        <span class="trust-editorial__emblem" aria-hidden="true"><i class="fa-solid fa-city"></i></span>
+        <h3 class="trust-editorial__name">Experience Since 2011</h3>
+        <p class="trust-editorial__desc">Two branches in Jeddah</p>
+      </li>
+    </ul>
+    <p class="trust-editorial__line">Accreditations and partnerships that reflect our commitment to reliability</p>
   </div>
 </section>
 
@@ -477,241 +1003,40 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section journal-editorial" data-journal-editorial aria-labelledby="journal-editorial-title-en">
   <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Three Paths</span>
-      <h2>Start From the Path That Fits You</h2>
-      <p class="lede">This isn't a services list — it's three entry points, each leading to a different page and a different action.</p>
-    </div>
-    <div class="grid grid-3 reveal-stagger">
-      <div class="card"><div class="card-body"><h3>Auctions List</h3><p>Public and electronic auctions under regulatory oversight. Browse upcoming auctions and review the terms booklet and participation requirements before registering.</p>
-        <a class="btn-ghost cluster" href="auctions.html">Auction Details<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></div></div><div class="card"><div class="card-body"><h3>Real Estate Brokerage</h3><p>Have a property to sell, or looking for a specific asset? Register your requirements and the brokerage team handles valuation and negotiation to closing.</p>
-        <a class="btn-ghost cluster" href="contact.html">Register Your Requirements<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></div></div><div class="card"><div class="card-body"><h3>Project Marketing</h3><p>We run project marketing for developers: market research, unit pricing, campaign management, and a field sales team.</p>
-        <a class="btn-ghost cluster" href="project-marketing.html">Learn More<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Auctions</span>
-      <h2>Upcoming Auctions</h2>
-      <p class="lede">Auction dates shown in Gregorian and Hijri. Registration takes place on the approved auction platform.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal" data-card data-status="live" data-city="jeddah" data-type="land">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="North Obhur Land Auction" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-live">Live Now</span>
-      <h3 style="margin-block-start:12px">North Obhur Land Auction</h3>
-      <div class="card-meta">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · North Obhur</span>
-        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Aug 12, 2026</span>
+    <header class="journal-editorial__head">
+      <div class="journal-editorial__intro">
+        <span class="eyebrow">Real Estate Knowledge</span>
+        <h2 id="journal-editorial-title-en">Articles That Explain the Process</h2>
+        <p class="lede">A practical explanation of auctions, brokerage and marketing: what documents are required, how decisions are made, and where delays happen.</p>
       </div>
-      <p>18 Safar 1448 · 5:00 PM · XX units</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="auction-details.html">Auction Details</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="open" data-city="jeddah" data-type="buildings">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="Al Safa District Buildings Auction" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">Registration Open</span>
-      <h3 style="margin-block-start:12px">Al Safa District Buildings Auction</h3>
-      <div class="card-meta">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Safa</span>
-        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Aug 26, 2026</span>
-      </div>
-      <p>3 Rabi I 1448 · 6:00 PM · XX units</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="auction-details.html">Auction Details</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="open" data-city="jeddah" data-type="warehouses">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="Industrial Area Warehouses Auction" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">Registration Open</span>
-      <h3 style="margin-block-start:12px">Industrial Area Warehouses Auction</h3>
-      <div class="card-meta">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Second Industrial City</span>
-        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Sep 9, 2026</span>
-      </div>
-      <p>17 Rabi I 1448 · 5:30 PM · XX units</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="auction-details.html">Auction Details</a>
-      </div>
-    </div>
-  </div>
-    </div>
-    <div class="text-center" style="margin-block-start:32px">
-      <a class="btn btn-outline" href="auctions.html">Load More</a>
-    </div>
-    <p class="helper text-center" style="margin-block-start:20px;max-width:60ch;margin-inline:auto">Registration and bidding take place on the [[auction platform name]] platform — you'll be redirected to an external site to complete registration.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">How It Works</span>
-      <h2>Four Clear Steps</h2>
-      <p class="lede">The same path applies to auctions, brokerage and marketing — the details differ, the order doesn't.</p>
-    </div>
-    <div class="process reveal-stagger">
-    <div class="process-step"><span class="num">01</span><h4>Request & Assessment</h4><p>You send your requirements or property details, and the team reviews the legal status, title deed and market value.</p></div><div class="process-step"><span class="num">02</span><h4>Preparation & Documentation</h4><p>Preparing the terms booklet or offering file, setting the sale mechanism, participation terms and dates.</p></div><div class="process-step"><span class="num">03</span><h4>Listing & Marketing</h4><p>Publishing the auction or project, and managing inquiries and viewings up to the sale date.</p></div><div class="process-step"><span class="num">04</span><h4>Award & Title Transfer</h4><p>Completing payment and transfer procedures with the relevant authorities, and delivering documents to the new owner.</p></div>
-  </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Our Services</span>
-      <h2>What We Offer, in Detail</h2>
-      <p class="lede">Four services under one roof, and one team following the file from valuation to title transfer.</p>
-    </div>
-    <div class="grid grid-4 reveal-stagger">
-      <div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">Auction Management</h3>
-      <p>Owner, government-entity and judicial-sale auctions: preparation, terms booklet, hall/platform management, and the award.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="auction-management.html">Learn More<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div><div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">Brokerage & Negotiation</h3>
-      <p>Representing sellers or buyers in land, buildings and commercial units, with follow-through to title transfer.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="brokerage.html">Learn More<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div><div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">Project Marketing</h3>
-      <p>A complete marketing plan for developers: pricing, sales identity, digital campaigns, and the sales team.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="project-marketing.html">Learn More<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div><div class="card reveal">
-    <div class="card-body">
-      <div class="icon-tile" aria-hidden="true"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
-      <h3 style="margin-block-start:16px">Advisory & Valuation</h3>
-      <p>Feasibility studies and a technical opinion on market value and best use of the asset before a sale decision.</p>
-      <div class="card-footer" style="border:none;padding-block-start:6px">
-        <a class="btn-ghost cluster" href="consulting.html">Learn More<i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Projects</span>
-      <h2>Projects We Market</h2>
-      <p class="lede">Residential and commercial units for developers in Jeddah — book a viewing or request the project booklet.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal" data-card data-status="construction" data-type="apartments">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">Under Construction</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Shati District</span></div>
-      <p>Residential Apartments</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="construction" data-type="commercial">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">Under Construction</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · North Obhur</span></div>
-      <p>Commercial Units</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="completed" data-type="villas">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">Completed</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Rawdah District</span></div>
-      <p>Standalone Villas</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-gallery"><div class="container"><div class="section-head"><span class="eyebrow">Aqar One Gallery</span><h2>Real estate details, before the description</h2><p class="lede">A visual selection of projects, facades, and spaces we present to clients.</p></div><div class="home-gallery reveal-stagger"><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/hero-01.jpg" alt="Real estate scene at sunset" loading="lazy"><div class="gallery-caption"><span>Projects</span><strong>Selected locations and facades</strong></div></a><a class="gallery-item" href="project-details.html?project=coastal-residences"><img src="assets/images/real-estate/property-01.jpg" alt="Residential project" loading="lazy"><div class="gallery-caption"><span>Residential</span><strong>Explore the project</strong></div></a><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/property-02.jpg" alt="Commercial spaces" loading="lazy"><div class="gallery-caption"><span>Commercial</span><strong>Spaces designed for opportunity</strong></div></a></div></div></section>
-
-<section class="section section-dark">
-  <div class="container">
-    <div class="section-head center"><h2>Trusted and Licensed</h2></div>
-    <div class="check-grid reveal-stagger">
-    <div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>Classified by the Real Estate General Authority</h4><p>License No. XX</p></div></div><div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>Judicial Sale Agent</h4><p>Per issued authorizations — XX</p></div></div><div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>Certifications & Accreditations</h4><p>[[Certification names]]</p></div></div><div class="check-item"><i class="fa-solid fa-check" aria-hidden="true"></i><div><h4>Experience Since 2011</h4><p>Two branches in Jeddah</p></div></div>
-  </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Blog</span>
-      <h2>Articles That Explain the Process</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal" data-category="auctions">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="How to Read the Terms Booklet Before Joining an Auction" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">Auctions</span>
-      <h3 style="margin-block-start:12px">How to Read the Terms Booklet Before Joining an Auction</h3>
-      <p class="card-meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Jul 12, 2026</span></p>
-      <p>The terms booklet isn't a procedural formality — it's the contract that defines your obligations after the award. We walk through the clauses worth reading closely: property description, title deed status, payment period and exclusions.</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="blog-post.html?article=terms-booklet">Read Article</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-category="brokerage">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="Sale &amp; Title Transfer Documents: An Owner&#x27;s Checklist" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">Brokerage</span>
-      <h3 style="margin-block-start:12px">Sale & Title Transfer Documents: An Owner's Checklist</h3>
-      <p class="card-meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Jun 28, 2026</span></p>
-      <p>What you need before listing your property for sale, who issues each document, and where the longest delays happen.</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="blog-post.html?article=sale-documents">Read Article</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-category="marketing">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="Pricing Units in a New Project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">Marketing</span>
-      <h3 style="margin-block-start:12px">Pricing Units in a New Project</h3>
-      <p class="card-meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Jun 9, 2026</span></p>
-      <p>How a price schedule is built from district data and absorption rate instead of surface-level comparison.</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="blog-post.html?article=pricing-units">Read Article</a>
-      </div>
-    </div>
-  </div>
+      <a class="journal-editorial__all" href="blog.html"><span>All Articles</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </header>
+    <div class="journal-editorial__grid">
+      <article class="journal-editorial__item" data-category="auctions">
+        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-01.jpg" alt="How to Read the Terms Booklet Before Joining an Auction" loading="lazy" decoding="async"></figure>
+        <div class="journal-editorial__meta"><span class="journal-editorial__cat">Auctions</span><time datetime="2026-07-12">Jul 12, 2026</time></div>
+        <h3 class="journal-editorial__title"><a href="blog-post.html?article=terms-booklet">How to Read the Terms Booklet Before Joining an Auction</a></h3>
+        <p class="journal-editorial__desc">The terms booklet isn't a procedural formality — it's the contract that defines your obligations after the award. We walk through the clauses worth reading closely: property description, title deed status, payment period and exclusions.</p>
+        <span class="journal-editorial__more" aria-hidden="true"><span>
+        <a href="blog-post.html">  <a href="blog-post.html">  Read Article</span><i class="fa-solid fa-arrow-right"></i></a></a>
+        </span>
+      </article>
+      <article class="journal-editorial__item" data-category="brokerage">
+        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-02.jpg" alt="Sale &amp; Title Transfer Documents: An Owner&#x27;s Checklist" loading="lazy" decoding="async"></figure>
+        <div class="journal-editorial__meta"><span class="journal-editorial__cat">Brokerage</span><time datetime="2026-06-28">Jun 28, 2026</time></div>
+        <h3 class="journal-editorial__title"><a href="blog-post.html?article=sale-documents">Sale & Title Transfer Documents: An Owner's Checklist</a></h3>
+        <p class="journal-editorial__desc">What you need before listing your property for sale, who issues each document, and where the longest delays happen.</p>
+        <span class="journal-editorial__more" aria-hidden="true"><span><a href="blog-post.html">  Read Article</span><i class="fa-solid fa-arrow-right"></i></a></span>
+      </article>
+      <article class="journal-editorial__item" data-category="marketing">
+        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-03.jpg" alt="Pricing Units in a New Project" loading="lazy" decoding="async"></figure>
+        <div class="journal-editorial__meta"><span class="journal-editorial__cat">Marketing</span><time datetime="2026-06-09">Jun 9, 2026</time></div>
+        <h3 class="journal-editorial__title"><a href="blog-post.html?article=pricing-units">Pricing Units in a New Project</a></h3>
+        <p class="journal-editorial__desc">How a price schedule is built from district data and absorption rate instead of surface-level comparison.</p>
+        <span class="journal-editorial__more" aria-hidden="true"><span><a href="blog-post.html">  Read Article</span><i class="fa-solid fa-arrow-right"></i></a></span>
+      </article>
     </div>
   </div>
 </section>

@@ -189,6 +189,7 @@
         var el = entry.target;
         var target = parseInt(el.getAttribute('data-count'), 10);
         if (isNaN(target)) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = target.toLocaleString('en-US'); cio.unobserve(el); return; }
         var duration = 1400;
         var startTime = null;
         function frame(ts) {
@@ -224,6 +225,7 @@
     var minEl = widget.querySelector('[data-cd-mins]');
     function tick() {
       var diff = target - Date.now();
+      widget.classList.toggle('is-past', diff <= 0);
       if (diff < 0) diff = 0;
       var days = Math.floor(diff / 86400000);
       var hours = Math.floor((diff % 86400000) / 3600000);
@@ -273,84 +275,273 @@
   });
 })();
 
-/* Premium homepage hero slider */
+/* Homepage editorial sections: reveal once the section scrolls into view. */
 (function () {
   'use strict';
-  document.querySelectorAll('[data-hero-slider]').forEach(function (root) {
-    var slides = root.querySelectorAll('.hero-slide');
-    var dots = root.querySelectorAll('[data-hero-dot]');
-    var current = root.querySelector('[data-hero-current]');
-    var prev = root.querySelector('[data-hero-prev]');
-    var next = root.querySelector('[data-hero-next]');
-    if (!slides.length || root.dataset.heroInit) return;
-    root.dataset.heroInit = '1';
-    var DELAY = 6500;
-    var index = 0, timer = null, hovered = false, focused = false;
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    root.style.setProperty('--hero-delay', DELAY + 'ms');
-    function isRTL() { return document.documentElement.dir === 'rtl'; }
+  var sections = document.querySelectorAll('[data-stats-editorial],[data-services-editorial],[data-paths-editorial],[data-process-step],[data-journal-editorial],[data-journal-item],[data-trust-editorial],[data-prop-section]');
+  if (!sections.length) return;
+  if (!('IntersectionObserver' in window)) { sections.forEach(function (s) { s.classList.add('is-in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -25% 0px' });
+  sections.forEach(function (s) { io.observe(s); });
+})();
 
-    function show(i) {
-      index = (i + slides.length) % slides.length;
-      slides.forEach(function (slide, n) {
-        var active = n === index;
-        slide.classList.toggle('is-active', active);
-        slide.setAttribute('aria-hidden', String(!active));
-      });
-      dots.forEach(function (dot, n) {
-        var active = n === index;
-        // Re-adding the class recreates the ::after progress bar, restarting its animation.
-        dot.classList.remove('is-active');
-        if (active) { void dot.offsetWidth; dot.classList.add('is-active'); }
-        dot.setAttribute('aria-selected', String(active));
-        dot.tabIndex = active ? 0 : -1;
-      });
-      if (current) current.textContent = String(index + 1).padStart(2, '0');
-    }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    function restart() {
-      stop();
-      var paused = hovered || focused || reduceMotion;
-      root.classList.toggle('is-paused', paused);
-      if (paused || document.hidden) return;
-      // The inactive language's copy stays in the DOM (hidden); don't animate it.
-      timer = setInterval(function () { if (!root.closest('[hidden]')) show(index + 1); }, DELAY);
-    }
-    function go(i) { show(i); restart(); }
-    function setHover(v) { hovered = v; if (!v) show(index); restart(); }
-    function setFocus(v) { focused = v; if (!v) show(index); restart(); }
+/* Homepage services list.
+   Desktop (>=992px, motion allowed): a sticky scroll story. The section becomes a
+   tall track, its content sticks under the header, and scroll progress through the
+   track picks the active service (01 -> 04); then the page scrolls on normally.
+   Clicking an inactive row scrolls to its stage; clicking the active row opens it.
+   Elsewhere: hovering, focusing or tapping a row activates it (on touch, the first
+   tap on an inactive row only activates it). */
+(function () {
+  'use strict';
+  var sections = document.querySelectorAll('[data-services-editorial]');
+  if (!sections.length) return;
+  var mqWide = window.matchMedia('(min-width: 992px)');
+  var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var controllers = [];
 
-    dots.forEach(function (dot) { dot.addEventListener('click', function () { go(parseInt(dot.dataset.heroDot, 10)); }); });
-    if (prev) prev.addEventListener('click', function () { go(index - 1); });
-    if (next) next.addEventListener('click', function () { go(index + 1); });
-    root.addEventListener('mouseenter', function () { setHover(true); });
-    root.addEventListener('mouseleave', function () { setHover(false); });
-    root.addEventListener('focusin', function () { if (!focused) setFocus(true); });
-    root.addEventListener('focusout', function (e) { if (!root.contains(e.relatedTarget)) setFocus(false); });
+  sections.forEach(function (section) {
+    var items = section.querySelectorAll('[data-service-index]');
+    var images = section.querySelectorAll('[data-service-image]');
+    var media = section.querySelector('.services-editorial__media');
+    var current = 0, touchTap = false, wasActive = false;
+
+    function activate(i) {
+      if (i !== current && media) media.setAttribute('data-dir', i > current ? 'next' : 'prev');
+      items.forEach(function (el, n) {
+        el.classList.toggle('is-active', n === i);
+        if (n === i) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current');
+      });
+      images.forEach(function (img, n) {
+        img.classList.toggle('is-prev', n === current && n !== i);
+        img.classList.toggle('is-active', n === i);
+        if (n === i) img.removeAttribute('aria-hidden'); else img.setAttribute('aria-hidden', 'true');
+      });
+      current = i;
+    }
+    function sticky() { return section.classList.contains('is-sticky'); }
+    // scroll offset (from the track's top) at which stage i begins
+    function stageTop(i) {
+      var range = section.offsetHeight - window.innerHeight;
+      return section.getBoundingClientRect().top + window.scrollY + range * (i + 0.5) / items.length;
+    }
+    function update() {
+      if (!sticky() || !section.offsetParent) return;
+      var range = section.offsetHeight - window.innerHeight;
+      var progress = Math.min(1, Math.max(0, -section.getBoundingClientRect().top / range));
+      section.style.setProperty('--sv-progress', progress.toFixed(4));
+      var i = Math.min(items.length - 1, Math.floor(progress * items.length));
+      if (i !== current) activate(i);
+    }
+
+    items.forEach(function (el, i) {
+      el.addEventListener('pointerdown', function (e) {
+        touchTap = e.pointerType === 'touch';
+        wasActive = el.classList.contains('is-active');
+      });
+      el.addEventListener('mouseenter', function () { if (!sticky()) activate(i); });
+      el.addEventListener('focus', function () { activate(i); });
+      el.addEventListener('click', function (e) {
+        if (sticky()) {
+          if (!el.classList.contains('is-active') || (touchTap && !wasActive)) {
+            e.preventDefault();
+            window.scrollTo({ top: stageTop(i), behavior: 'smooth' });
+          }
+        } else if (touchTap && !wasActive) {
+          e.preventDefault();
+        }
+        touchTap = false;
+        activate(i);
+      });
+    });
+    controllers.push({ section: section, update: update });
+  });
+
+  // update() is a single rect read per section; scroll already fires at most once per frame
+  function onScroll() { controllers.forEach(function (c) { c.update(); }); }
+  function setMode() {
+    var on = mqWide.matches && !mqReduce.matches;
+    controllers.forEach(function (c) {
+      c.section.classList.toggle('is-sticky', on);
+      if (!on) c.section.style.removeProperty('--sv-progress');
+    });
+    onScroll();
+  }
+  [mqWide, mqReduce].forEach(function (mq) {
+    if (mq.addEventListener) mq.addEventListener('change', setMode); else mq.addListener(setMode);
+  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  // the hidden language's copy has no layout until it is shown
+  document.addEventListener('aqar:languagechange', onScroll);
+  setMode();
+})();
+
+/* Journal items + property cards: subtle cursor parallax inside the hovered card's image.
+   Fine pointers only, never with reduced motion; listeners live on each article,
+   so nothing runs unless the pointer is over one. */
+(function () {
+  'use strict';
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.journal-editorial__item, .prop-card').forEach(function (item) {
+    var media = item.querySelector('.journal-editorial__media') || item;
+    if (!media) return;
+    item.addEventListener('pointermove', function (e) {
+      var r = media.getBoundingClientRect();
+      var x = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+      var y = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
+      item.style.setProperty('--jx', x.toFixed(3));
+      item.style.setProperty('--jy', y.toFixed(3));
+    });
+    item.addEventListener('pointerleave', function () {
+      item.style.setProperty('--jx', '0');
+      item.style.setProperty('--jy', '0');
+    });
+  });
+})();
+
+/* Home property carousels: a centred active card with neighbours on both sides
+   (looping), tabs that filter the set, arrows, dots, counter, keys and swipe.
+   Cards are positioned by JS; CSS handles the transitions. */
+(function () {
+  'use strict';
+  document.querySelectorAll('[data-prop-carousel]').forEach(function (root) {
+    var section = root.closest('[data-prop-section]');
+    var viewport = root.querySelector('.prop-carousel__viewport');
+    var all = Array.prototype.slice.call(viewport.querySelectorAll('.prop-card'));
+    var dotsBox = root.querySelector('[data-prop-dots]');
+    var curEl = root.querySelector('[data-prop-current]'), totEl = root.querySelector('[data-prop-total]');
+    var prevBtn = root.querySelector('[data-prop-prev]'), nextBtn = root.querySelector('[data-prop-next]');
+    var tabs = section ? section.querySelectorAll('[data-prop-filter]') : [];
+    var items = all.slice(), active = 0, slots = new Map();
+    var key = all[0] && all[0].classList.contains('prop-card--auction') ? 'status' : 'type';
+    function rtl() { return document.documentElement.dir === 'rtl'; }
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function metrics() {
+      var W = viewport.clientWidth, vw = window.innerWidth;
+      var perView = vw >= 1100 ? 3 : 1;
+      var gap = vw >= 1100 ? 18 : 14;
+      var w = perView === 3 ? (W - gap * 2) / 3 : Math.min(W * (vw >= 700 ? 0.62 : 0.86), 520);
+      return { w: w, gap: gap, h: w / 0.87, perView: perView };
+    }
+    function layout(noAnim) {
+      if (!viewport.offsetParent) return;
+      var m = metrics(), n = items.length;
+      root.style.setProperty('--pc-w', m.w + 'px');
+      root.style.setProperty('--pc-vh', Math.round(m.h * 1.1) + 'px');
+      all.forEach(function (c) { if (items.indexOf(c) < 0) { c.hidden = true; } });
+      items.forEach(function (c, i) {
+        c.hidden = false;
+        var rel = ((i - active) % n + n) % n;           // 0..n-1
+        if (rel > n / 2) rel -= n;                     // centre the loop
+        if (n === 2 && rel === -1) rel = 1;
+        var prev = slots.get(c);
+        var jump = noAnim || (prev !== undefined && Math.abs(prev - rel) > 1);
+        c.classList.toggle('is-jump', jump);
+        slots.set(c, rel);
+        var dist = Math.abs(rel);
+        var x = rel * (m.w + m.gap) * (rtl() ? -1 : 1);
+        var scale = dist === 0 ? 1.06 : 0.97;
+        c.style.transform = 'translateX(' + x + 'px) scale(' + scale + ')';
+        c.style.zIndex = String(10 - dist);
+        c.style.opacity = dist > 2 ? '0' : dist === 2 ? '.55' : '1';
+        c.classList.toggle('is-center', dist === 0);
+        c.classList.toggle('is-peek', dist === 2);
+        // only the cards actually in view take part in tab order / the a11y tree
+        var visible = dist <= (m.perView === 3 ? 1 : 0);
+        if (visible) c.removeAttribute('inert'); else c.setAttribute('inert', '');
+        c.setAttribute('aria-hidden', String(!visible));
+      });
+      requestAnimationFrame(function () { items.forEach(function (c) { c.classList.remove('is-jump'); }); });
+      curEl.textContent = pad(n ? active + 1 : 0);
+      totEl.textContent = pad(n);
+      Array.prototype.forEach.call(dotsBox.children, function (d, i) {
+        if (i === active) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+      });
+      prevBtn.disabled = nextBtn.disabled = n < 2;
+    }
+    function buildDots() {
+      dotsBox.innerHTML = '';
+      items.forEach(function (c, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', pad(i + 1) + ' / ' + pad(items.length));
+        b.addEventListener('click', function () { go(i); });
+        dotsBox.appendChild(b);
+      });
+    }
+    function go(i) { var n = items.length; if (!n) return; active = ((i % n) + n) % n; layout(); }
+    prevBtn.addEventListener('click', function () { go(active - 1); });
+    nextBtn.addEventListener('click', function () { go(active + 1); });
     root.addEventListener('keydown', function (e) {
       if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-      if (e.target.closest && !e.target.closest('.hero-slider-ui')) return;
-      var forward = (e.key === 'ArrowLeft') === isRTL();
-      go(index + (forward ? 1 : -1));
-      var dot = dots[index];
-      if (dot && e.target.classList.contains('hero-dot')) dot.focus();
+      var forward = (e.key === 'ArrowLeft') === rtl();
+      go(active + (forward ? 1 : -1));
       e.preventDefault();
     });
-    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else restart(); });
-
-    var startX = 0, startY = 0;
-    root.addEventListener('touchstart', function (e) { startX = e.changedTouches[0].clientX; startY = e.changedTouches[0].clientY; }, { passive: true });
-    root.addEventListener('touchend', function (e) {
-      var dx = e.changedTouches[0].clientX - startX;
-      var dy = e.changedTouches[0].clientY - startY;
-      if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
-      // Swiping toward the reading direction's end advances: left in LTR, right in RTL.
-      var forward = isRTL() ? dx > 0 : dx < 0;
-      go(index + (forward ? 1 : -1));
-    }, { passive: true });
-
-    show(0); restart();
+    // clicking a side card brings it to the centre instead of following its link
+    items.forEach(function (c) {
+      c.addEventListener('click', function (e) {
+        if (c.classList.contains('is-center')) return;
+        var i = items.indexOf(c);
+        if (i > -1) { e.preventDefault(); go(i); }
+      }, true);
+    });
+    // swipe
+    var sx = 0, sy = 0, tracking = false;
+    viewport.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; tracking = true; sx = e.clientX; sy = e.clientY; });
+    viewport.addEventListener('pointerup', function (e) {
+      if (!tracking) return; tracking = false;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      var forward = rtl() ? dx > 0 : dx < 0;
+      go(active + (forward ? 1 : -1));
+    });
+    viewport.addEventListener('pointercancel', function () { tracking = false; });
+    Array.prototype.forEach.call(tabs, function (tab) {
+      tab.addEventListener('click', function () {
+        Array.prototype.forEach.call(tabs, function (t) { t.setAttribute('aria-selected', String(t === tab)); });
+        var f = tab.getAttribute('data-prop-filter');
+        items = all.filter(function (c) { return f === 'all' || c.getAttribute('data-' + key) === f; });
+        active = 0; slots.clear(); buildDots(); layout(true);
+      });
+    });
+    buildDots(); layout(true);
+    window.addEventListener('resize', function () { layout(true); });
+    document.addEventListener('aqar:languagechange', function () { slots.clear(); layout(true); });
   });
+})();
+
+/* Homepage video hero: fade the video in once frames are playing; the poster
+   (also the section background) stays visible if autoplay is blocked.
+   Reduced-motion users get the still poster instead of a moving background. */
+(function () {
+  'use strict';
+  var video = document.querySelector('[data-hero-video] video');
+  if (!video) return;
+  var root = video.closest('[data-hero-video]');
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video.removeAttribute('autoplay');
+    video.pause();
+    return;
+  }
+  function ready() { root.classList.add('is-playing'); }
+  if (!video.paused && video.readyState > 2) ready();
+  else video.addEventListener('playing', ready, { once: true });
+  // Chrome pauses video in background tabs; retry when the page becomes visible.
+  function play() {
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { /* autoplay blocked: poster remains */ });
+  }
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && video.paused) play(); });
+  play();
 })();
 
 (function(){"use strict";if(!window.matchMedia("(pointer:fine)").matches)return;document.querySelectorAll(".card,.gallery-item").forEach(function(el){el.addEventListener("pointermove",function(e){if(innerWidth<900)return;var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.setProperty("--mx",x*100+"%");el.style.setProperty("--my",y*100+"%")});el.addEventListener("pointerleave",function(){el.style.removeProperty("--mx");el.style.removeProperty("--my")})})})();

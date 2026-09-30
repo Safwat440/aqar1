@@ -62,73 +62,67 @@
       <button class="btn btn-outline btn-sm js-clear-filters" type="button">مسح الكل</button>
     </div>
     <p class="muted" style="margin-block-end:20px">النتائج: <strong data-results-count>9</strong></p>
-    <div class="grid grid-3" id="project-list-ar"><div class="card reveal" data-card data-status="construction" data-type="apartments">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">تحت الإنشاء</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الشاطئ</span></div>
-      <p>شقق سكنية</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=coastal-residences">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="construction" data-type="commercial">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">تحت الإنشاء</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · أبحر الشمالية</span></div>
-      <p>وحدات تجارية</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=north-commercial">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="completed" data-type="villas">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">مكتمل</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الروضة</span></div>
-      <p>فلل مستقلة</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=rawda-villas">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="completed" data-type="apartments">
-    <div class="card-media"><img src="assets/images/real-estate/hero-01.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">مكتمل</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي السلامة</span></div>
-      <p>شقق سكنية</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=salama-apartments">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="soon" data-type="compound">
-    <div class="card-media"><img src="assets/images/real-estate/hero-02.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">قريبًا</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</span></div>
-      <p>مجمع سكني</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=coming-compound">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="soon" data-type="commercial">
-    <div class="card-media"><img src="assets/images/real-estate/hero-03.jpg" alt="مشروع عقاري" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">قريبًا</span>
-      <h3 style="margin-block-start:12px">[[اسم المشروع]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</span></div>
-      <p>وحدات تجارية</p>
-      <div class="card-footer">
-        <a class="btn btn-outline btn-sm" href="project-details.html?project=coming-commercial">تفاصيل المشروع</a>
-      </div>
-    </div>
-  </div></div>
+    <div class="grid grid-3" id="project-list-ar"><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/property-01.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">شقق سكنية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الشاطئ</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coastal-residences">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">تحت الإنشاء</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coastal-residences"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/property-02.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">وحدات تجارية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · أبحر الشمالية</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=north-commercial">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">تحت الإنشاء</span></p>
+            <a class="prop-card__more" href="project-details.html?project=north-commercial"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="villas">
+          <img class="prop-card__img" src="assets/images/real-estate/property-03.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">فلل مستقلة</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي الروضة</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=rawda-villas">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">مكتمل</span></p>
+            <a class="prop-card__more" href="project-details.html?project=rawda-villas"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-01.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">شقق سكنية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · حي السلامة</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=salama-apartments">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">مكتمل</span></p>
+            <a class="prop-card__more" href="project-details.html?project=salama-apartments"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="compound">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">مجمع سكني</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-compound">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">قريبًا</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-compound"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-03.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">وحدات تجارية</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>جدة · [[اسم الحي]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-commercial">[[اسم المشروع]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">قريبًا</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-commercial"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
+          </div>
+        </article></div>
     <div class="text-center" style="margin-block-start:32px"><button class="btn btn-outline" type="button">تحميل المزيد</button></div>
   </div>
 </section>
@@ -158,73 +152,67 @@
       <button class="btn btn-outline btn-sm js-clear-filters" type="button">Clear All</button>
     </div>
     <p class="muted" style="margin-block-end:20px">Results: <strong data-results-count>9</strong></p>
-    <div class="grid grid-3" id="project-list-en"><div class="card reveal" data-card data-status="construction" data-type="apartments">
-    <div class="card-media"><img src="assets/images/real-estate/property-01.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">Under Construction</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Shati District</span></div>
-      <p>Residential Apartments</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="construction" data-type="commercial">
-    <div class="card-media"><img src="assets/images/real-estate/property-02.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-upcoming">Under Construction</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · North Obhur</span></div>
-      <p>Commercial Units</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="completed" data-type="villas">
-    <div class="card-media"><img src="assets/images/real-estate/property-03.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">Completed</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Rawdah District</span></div>
-      <p>Standalone Villas</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="completed" data-type="apartments">
-    <div class="card-media"><img src="assets/images/real-estate/hero-01.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-open">Completed</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · As Salamah District</span></div>
-      <p>Residential Apartments</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="soon" data-type="compound">
-    <div class="card-media"><img src="assets/images/real-estate/hero-02.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">Coming Soon</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</span></div>
-      <p>Residential Compound</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div><div class="card reveal" data-card data-status="soon" data-type="commercial">
-    <div class="card-media"><img src="assets/images/real-estate/hero-03.jpg" alt="Real estate project" loading="lazy"></div>
-    <div class="card-body">
-      <span class="badge badge-gold">Coming Soon</span>
-      <h3 style="margin-block-start:12px">[[Project Name]]</h3>
-      <div class="card-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</span></div>
-      <p>Commercial Units</p>
-      <div class="card-footer">
-        <button class="btn btn-outline btn-sm" type="button" disabled title="Coming soon">Project Details</button>
-      </div>
-    </div>
-  </div></div>
+    <div class="grid grid-3" id="project-list-en"><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/property-01.jpg" alt="Real estate project" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Residential Apartments</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Shati District</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coastal-residences">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">Under Construction</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coastal-residences"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/property-02.jpg" alt="Real estate project" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Commercial Units</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · North Obhur</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=north-commercial">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">Under Construction</span></p>
+            <a class="prop-card__more" href="project-details.html?project=north-commercial"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="villas">
+          <img class="prop-card__img" src="assets/images/real-estate/property-03.jpg" alt="Real estate project" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Standalone Villas</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · Al Rawdah District</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=rawda-villas">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">Completed</span></p>
+            <a class="prop-card__more" href="project-details.html?project=rawda-villas"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="apartments">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-01.jpg" alt="Real estate project" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Residential Apartments</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · As Salamah District</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=salama-apartments">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-open prop-card__status">Completed</span></p>
+            <a class="prop-card__more" href="project-details.html?project=salama-apartments"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="compound">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="Real estate project" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Residential Compound</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-compound">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">Coming Soon</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-compound"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="commercial">
+          <img class="prop-card__img" src="assets/images/real-estate/hero-03.jpg" alt="Real estate project" loading="lazy" decoding="async">
+          <span class="prop-card__shade" aria-hidden="true"></span>
+          <span class="prop-card__badge">Commercial Units</span>
+          <div class="prop-card__body">
+            <p class="prop-card__loc"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Jeddah · [[District Name]]</p>
+            <h3 class="prop-card__title"><a href="project-details.html?project=coming-commercial">[[Project Name]]</a></h3>
+            <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">Coming Soon</span></p>
+            <a class="prop-card__more" href="project-details.html?project=coming-commercial"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article></div>
     <div class="text-center" style="margin-block-start:32px"><button class="btn btn-outline" type="button">Load More</button></div>
   </div>
 </section>
