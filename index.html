@@ -12,10 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/main.css?news-brief=202610110005">
 <link rel="stylesheet" href="assets/css/bootstrap-aqar.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/arabic.css" id="lang-style">
+<script src="assets/js/preloader.js"></script>
 </head>
 <body class="home-page">
 <a class="skip-link" href="#main" data-i18n="nav.skip">تخطَّ إلى المحتوى</a>
@@ -73,6 +74,34 @@
     </div>
   </div>
   <div class="hero-video__scroll" aria-hidden="true"><span class="hero-video__scroll-line"></span></div>
+</section>
+<section class="auction-countdown" data-home-auction aria-live="polite" aria-labelledby="home-countdown-ar">
+  <div class="container auction-countdown__inner">
+    <div class="i18n-block auction-countdown__intro" data-lang="ar">
+      <span class="eyebrow">المزاد التالي</span>
+      <h2 id="home-countdown-ar">فرصتك التالية تبدأ هنا</h2>
+      <p>نحدّث الموعد تلقائيًا من أقرب مزاد متاح.</p>
+    </div>
+    <div class="i18n-block auction-countdown__intro" data-lang="en" hidden>
+      <span class="eyebrow">Next auction</span>
+      <h2 id="home-countdown-en">Your next opportunity starts here</h2>
+      <p>We automatically surface the nearest available auction date.</p>
+    </div>
+    <div class="auction-countdown__panel">
+      <div class="auction-countdown__details">
+        <span class="auction-countdown__label" data-auction-status>Upcoming auction</span>
+        <h3 data-auction-title>—</h3>
+        <p data-auction-date>—</p>
+        <a class="btn btn-gold" data-auction-link href="auctions.html">View auctions <i class="fa-solid fa-arrow-left btn-arrow" aria-hidden="true"></i></a>
+      </div>
+      <div class="auction-countdown__timer" data-auction-timer aria-label="Countdown">
+        <div><b data-home-cd-days>00</b><span data-unit="days">Days</span></div>
+        <div><b data-home-cd-hours>00</b><span data-unit="hours">Hours</span></div>
+        <div><b data-home-cd-mins>00</b><span data-unit="minutes">Minutes</span></div>
+        <div><b data-home-cd-secs>00</b><span data-unit="seconds">Seconds</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 <div class="i18n-block" data-lang="ar">
 
@@ -449,8 +478,7 @@
   </div>
 </section>
 
-<section class="section section-gallery"><div class="container"><div class="section-head"><span class="eyebrow">معرض عقار ونّ</span><h2>تفاصيل عقارية تُرى قبل أن تُوصف</h2><p class="lede">لقطات من المشروعات والواجهات والمساحات التي نعمل على تقديمها وتجهيزها للعملاء.</p></div><div class="home-gallery reveal-stagger"><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/hero-01.jpg" alt="مشهد عقاري عند الغروب" loading="lazy"><div class="gallery-caption"><span>مشروعات</span><strong>واجهات ومواقع مختارة</strong></div></a><a class="gallery-item" href="project-details.html?project=coastal-residences"><img src="assets/images/real-estate/property-01.jpg" alt="مشروع سكني" loading="lazy"><div class="gallery-caption"><span>سكني</span><strong>تفاصيل المشروع</strong></div></a><a class="gallery-item" href="projects.html"><img src="assets/images/real-estate/property-02.jpg" alt="مساحات تجارية" loading="lazy"><div class="gallery-caption"><span>تجاري</span><strong>مساحات مصممة للفرص</strong></div></a></div></div></section>
-
+ 
 <section class="section trust-editorial" data-trust-editorial aria-labelledby="trust-editorial-title-ar">
   <div class="container">
     <div class="section-head center trust-editorial__head">
@@ -484,64 +512,34 @@
   </div>
 </section>
 
-<section class="section-sm section-alt">
-  <div class="container text-center">
-    <h3>عملاؤنا</h3>
-    <p class="muted" style="margin-block:10px 28px">جهات ومطوّرون وملّاك تعاملنا معهم منذ 2011</p>
-    <div class="carousel">
-    <div class="carousel-track" role="group" aria-label="شعارات العملاء"><div class="carousel-slide"><img src="assets/images/brands/Safaga-Terminal-Infrastructure-Project.jpg" alt="حسان علام للإنشاءات"></div><div class="carousel-slide"><img src="assets/images/brands/ttwer.png" alt="تطوير مصر"></div><div class="carousel-slide"><img src="assets/images/brands/eg.jpg" alt="إيجيبشن ديفيلوبرز"></div><div class="carousel-slide"><img src="assets/images/brands/ksa.jpg" alt="السعودية المصرية للتعمير"></div><div class="carousel-slide"><img src="assets/images/brands/aqar-masr.png" alt="عقارات مصر"></div><div class="carousel-slide"><img src="assets/images/brands/emmar.jpg" alt="عقار مصر للتطوير"></div></div>
-    <div class="carousel-controls">
-      <button type="button" class="carousel-nav carousel-prev" aria-label="السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-      <button type="button" class="carousel-nav carousel-next" aria-label="التالي"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-    </div>
-  </div>
-  </div>
-</section>
+<section class="section clients-editorial" data-clients-editorial><div class="container"><header class="journal-editorial__head"><div class="journal-editorial__intro"><span class="eyebrow">شركاء النجاح</span><h2>عملاؤنا</h2><p class="lede">جهات ومطوّرون وملّاك تعاملنا معهم منذ 2011.</p></div></header><div class="carousel clients-editorial__carousel"><div class="carousel-track" role="region" aria-label="شعارات العملاء" tabindex="0"><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/1.png" alt="شعار عميل" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/9.png" alt="شعار عميل" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/17.png" alt="شعار عميل" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/25.png" alt="شعار عميل" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/33.png" alt="شعار عمil" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/42.png" alt="شعار عميل" loading="lazy"></figure></div><div class="carousel-controls"><button type="button" class="carousel-nav carousel-prev" aria-label="السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button type="button" class="carousel-nav carousel-next" aria-label="التالي"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button></div></div></div></section>
 
-<section class="section journal-editorial" data-journal-editorial aria-labelledby="journal-editorial-title-ar">
+<section class="section news-brief" data-news-carousel aria-labelledby="news-brief-title-ar">
   <div class="container">
-    <header class="journal-editorial__head">
-      <div class="journal-editorial__intro">
-        <span class="eyebrow">المعرفة العقارية</span>
-        <h2 id="journal-editorial-title-ar">مقالات تشرح الإجراءات</h2>
-        <p class="lede">شرح عملي للمزادات والوساطة والتسويق: ما المستندات المطلوبة، وكيف تُتخذ القرارات، وأين تحدث التأخيرات.</p>
+    <header class="news-brief__masthead"><h2 id="news-brief-title-ar">المدونة</h2><p>شاهد آخر الأخبار</p></header>
+    <a class="news-brief__category" href="blog.html"><span>مقالات</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+    <div class="news-brief__viewport" data-news-viewport role="group" aria-roledescription="carousel" aria-label="معرض الأخبار العربية" tabindex="0">
+      <div class="news-brief__track" data-news-track aria-live="off">
+        <article class="news-brief__slide" data-news-slide data-news-id="terms-booklet" data-size="tall"><p class="news-brief__tag">مزادات</p><h3><a href="blog-post.html?article=terms-booklet">كيف تقرأ كراسة الشروط قبل المشاركة في مزاد</a></h3><figure><img src="assets/images/real-estate/hero-01.jpg" alt="كيف تقرأ كراسة الشروط قبل المشاركة في مزاد" loading="lazy" decoding="async">
+        </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="sale-documents" data-size="medium"><p class="news-brief__tag">وساطة</p><h3><a href="blog-post.html?article=sale-documents">مستندات البيع والإفراغ: قائمة تحقّق للمالك</a></h3><figure><img src="assets/images/real-estate/service-04.jpg" alt="مستندات البيع والإفراغ: قائمة تحقّق للمالك" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="pricing-units" data-size="medium-tall"><p class="news-brief__tag">تسويق</p><h3><a href="blog-post.html?article=pricing-units">تسعير الوحدات في مشروع جديد</a></h3><figure><img src="assets/images/real-estate/hero-02.jpg" alt="تسعير الوحدات في مشروع جديد" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="guarantee-deposit" data-size="short"><p class="news-brief__tag">مزادات</p><h3><a href="blog-post.html?article=guarantee-deposit">مبلغ الضمان: لماذا يُطلب ومتى يُرد</a></h3><figure><img src="assets/images/real-estate/service-01.jpg" alt="مبلغ الضمان: لماذا يُطلب ومتى يُرد" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="jeddah-market" data-size="tall"><p class="news-brief__tag">السوق</p><h3><a href="blog-post.html?article=jeddah-market">قراءة في سوق جدة العقاري</a></h3><figure><img src="assets/images/real-estate/hero-video-poster.jpg" alt="قراءة في سوق جدة العقاري" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="agency-power" data-size="medium"><p class="news-brief__tag">وساطة</p><h3><a href="blog-post.html?article=agency-power">الوكالة العقارية: ما يجب أن تنص عليه</a></h3><figure><img src="assets/images/real-estate/service-03.jpg" alt="الوكالة العقارية: ما يجب أن تنص عليه" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
       </div>
-      <a class="journal-editorial__all" href="blog.html"><span>جميع المقالات</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
-    </header>
-    <div class="journal-editorial__grid">
-      <article class="journal-editorial__item" data-category="auctions">
-        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-01.jpg" alt="كيف تقرأ كراسة الشروط قبل المشاركة في مزاد" loading="lazy" decoding="async"></figure>
-        <div class="journal-editorial__meta"><span class="journal-editorial__cat">مزادات</span><time datetime="2026-07-12">12 يوليو 2026</time></div>
-        <h3 class="journal-editorial__title"><a href="blog-post.html?article=terms-booklet">كيف تقرأ كراسة الشروط قبل المشاركة في مزاد</a></h3>
-        <p class="journal-editorial__desc">الكراسة ليست ورقة إجرائية — هي العقد الذي يحدّد التزاماتك بعد الترسية. نمرّ على البنود التي تُقرأ بعناية: وصف العقار، حالة الصك، مدة السداد، والاستبعادات.</p>
-        <span class="journal-editorial__more" aria-hidden="true">
-        <a href="blog-post.html?article=terms-booklet">
-          <span>اقرأ المقال</span><i class="fa-solid fa-arrow-left"></i>
-        </a>
-        
-        </span>
-      </article>
-      <article class="journal-editorial__item" data-category="brokerage">
-        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-02.jpg" alt="مستندات البيع والإفراغ: قائمة تحقّق للمالك" loading="lazy" decoding="async"></figure>
-        <div class="journal-editorial__meta"><span class="journal-editorial__cat">وساطة</span><time datetime="2026-06-28">28 يونيو 2026</time></div>
-        <h3 class="journal-editorial__title"><a href="blog-post.html?article=sale-documents">مستندات البيع والإفراغ: قائمة تحقّق للمالك</a></h3>
-        <p class="journal-editorial__desc">ما تحتاجه قبل عرض عقارك للبيع، ومن يصدر كل مستند، وأين تحدث أطول فترات التأخير.</p>
-        <span class="journal-editorial__more" aria-hidden="true">
-         <a href="blog-post.html?article=terms-booklet">
-          <span>اقرأ المقال</span><i class="fa-solid fa-arrow-left"></i>
-        </a>
-        </span>
-      </article>
-      <article class="journal-editorial__item" data-category="marketing">
-        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-03.jpg" alt="تسعير الوحدات في مشروع جديد" loading="lazy" decoding="async"></figure>
-        <div class="journal-editorial__meta"><span class="journal-editorial__cat">تسويق</span><time datetime="2026-06-09">9 يونيو 2026</time></div>
-        <h3 class="journal-editorial__title"><a href="blog-post.html?article=pricing-units">تسعير الوحدات في مشروع جديد</a></h3>
-        <p class="journal-editorial__desc">كيف يُبنى جدول الأسعار على بيانات الحي ومعدل الامتصاص بدل المقارنة السطحية.</p>
-        <span class="journal-editorial__more" aria-hidden="true">
-           <a href="blog-post.html?article=terms-booklet">
-          <span>اقرأ المقال</span><i class="fa-solid fa-arrow-left"></i>
-        </a></span>
-      </article>
     </div>
   </div>
 </section>
@@ -989,54 +987,33 @@
   </div>
 </section>
 
-<section class="section-sm section-alt">
-  <div class="container text-center">
-    <h3>Our Clients</h3>
-    <p class="muted" style="margin-block:10px 28px">Entities, developers and owners we've worked with since 2011</p>
-    <div class="carousel">
-    <div class="carousel-track" role="group" aria-label="Client logos"><div class="carousel-slide"><img src="assets/images/brands/Safaga-Terminal-Infrastructure-Project.jpg" alt="Hassan Allam Construction"></div><div class="carousel-slide"><img src="assets/images/brands/ttwer.png" alt="Tatweer Misr"></div><div class="carousel-slide"><img src="assets/images/brands/eg.jpg" alt="Egyptian Developers"></div><div class="carousel-slide"><img src="assets/images/brands/ksa.jpg" alt="Saudi Egyptian Developers"></div><div class="carousel-slide"><img src="assets/images/brands/aqar-masr.png" alt="AQR Masr"></div><div class="carousel-slide"><img src="assets/images/brands/emmar.jpg" alt="Aqar Masr Developments"></div></div>
-    <div class="carousel-controls">
-      <button type="button" class="carousel-nav carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-      <button type="button" class="carousel-nav carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-    </div>
-  </div>
-  </div>
-</section>
+<section class="section clients-editorial" data-clients-editorial><div class="container"><header class="journal-editorial__head"><div class="journal-editorial__intro"><span class="eyebrow">Trusted relationships</span><h2>Our Clients</h2><p class="lede">Entities, developers and owners we have worked with since 2011.</p></div></header><div class="carousel clients-editorial__carousel"><div class="carousel-track" role="region" aria-label="Client logos" tabindex="0"><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/1.png" alt="Client logo" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/9.png" alt="Client logo" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/17.png" alt="Client logo" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/25.png" alt="Client logo" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/33.png" alt="Client logo" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/42.png" alt="Client logo" loading="lazy"></figure></div><div class="carousel-controls"><button type="button" class="carousel-nav carousel-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button><button type="button" class="carousel-nav carousel-next" aria-label="Next"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button></div></div></div></section>
 
-<section class="section journal-editorial" data-journal-editorial aria-labelledby="journal-editorial-title-en">
+<section class="section news-brief" data-news-carousel aria-labelledby="news-brief-title-en">
   <div class="container">
-    <header class="journal-editorial__head">
-      <div class="journal-editorial__intro">
-        <span class="eyebrow">Real Estate Knowledge</span>
-        <h2 id="journal-editorial-title-en">Articles That Explain the Process</h2>
-        <p class="lede">A practical explanation of auctions, brokerage and marketing: what documents are required, how decisions are made, and where delays happen.</p>
+    <header class="news-brief__masthead"><h2 id="news-brief-title-en">News Brief</h2><p>See the latest stories</p></header>
+    <a class="news-brief__category" href="blog.html"><span>Articles</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    <div class="news-brief__viewport" data-news-viewport role="group" aria-roledescription="carousel" aria-label="English news carousel" tabindex="0">
+      <div class="news-brief__track" data-news-track aria-live="off">
+        <article class="news-brief__slide" data-news-slide data-news-id="terms-booklet" data-size="tall"><p class="news-brief__tag">Auctions</p><h3><a href="blog-post.html?article=terms-booklet">How to Read the Terms Booklet Before Joining an Auction</a></h3><figure><img src="assets/images/real-estate/hero-01.jpg" alt="How to Read the Terms Booklet Before Joining an Auction" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="sale-documents" data-size="medium"><p class="news-brief__tag">Brokerage</p><h3><a href="blog-post.html?article=sale-documents">Sale &amp; Title Transfer Documents: An Owner&#x27;s Checklist</a></h3><figure><img src="assets/images/real-estate/service-04.jpg" alt="Sale and title transfer documents" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="pricing-units" data-size="medium-tall"><p class="news-brief__tag">Marketing</p><h3><a href="blog-post.html?article=pricing-units">Pricing Units in a New Project</a></h3><figure><img src="assets/images/real-estate/hero-02.jpg" alt="Pricing units in a new project" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="guarantee-deposit" data-size="short"><p class="news-brief__tag">Auctions</p><h3><a href="blog-post.html?article=guarantee-deposit">The Guarantee Deposit: Why It&#x27;s Required and When It&#x27;s Refunded</a></h3><figure><img src="assets/images/real-estate/service-01.jpg" alt="The guarantee deposit and auction property" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="jeddah-market" data-size="tall"><p class="news-brief__tag">Market</p><h3><a href="blog-post.html?article=jeddah-market">A Read on the Jeddah Real Estate Market</a></h3><figure><img src="assets/images/real-estate/hero-video-poster.jpg" alt="Aerial view of Jeddah's real estate market" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
+        <article class="news-brief__slide" data-news-slide data-news-id="agency-power" data-size="medium"><p class="news-brief__tag">Brokerage</p><h3><a href="blog-post.html?article=agency-power">Real Estate Agency Agreements: What They Must State</a></h3><figure><img src="assets/images/real-estate/service-03.jpg" alt="Real estate agency agreements and city properties" loading="lazy" decoding="async"> </figure>
+        <a class="r-more" href="blog-post.html">اقرأ المزيد</a>
+        </article>
       </div>
-      <a class="journal-editorial__all" href="blog.html"><span>All Articles</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </header>
-    <div class="journal-editorial__grid">
-      <article class="journal-editorial__item" data-category="auctions">
-        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-01.jpg" alt="How to Read the Terms Booklet Before Joining an Auction" loading="lazy" decoding="async"></figure>
-        <div class="journal-editorial__meta"><span class="journal-editorial__cat">Auctions</span><time datetime="2026-07-12">Jul 12, 2026</time></div>
-        <h3 class="journal-editorial__title"><a href="blog-post.html?article=terms-booklet">How to Read the Terms Booklet Before Joining an Auction</a></h3>
-        <p class="journal-editorial__desc">The terms booklet isn't a procedural formality — it's the contract that defines your obligations after the award. We walk through the clauses worth reading closely: property description, title deed status, payment period and exclusions.</p>
-        <span class="journal-editorial__more" aria-hidden="true"><span>
-        <a href="blog-post.html">  <a href="blog-post.html">  Read Article</span><i class="fa-solid fa-arrow-right"></i></a></a>
-        </span>
-      </article>
-      <article class="journal-editorial__item" data-category="brokerage">
-        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-02.jpg" alt="Sale &amp; Title Transfer Documents: An Owner&#x27;s Checklist" loading="lazy" decoding="async"></figure>
-        <div class="journal-editorial__meta"><span class="journal-editorial__cat">Brokerage</span><time datetime="2026-06-28">Jun 28, 2026</time></div>
-        <h3 class="journal-editorial__title"><a href="blog-post.html?article=sale-documents">Sale & Title Transfer Documents: An Owner's Checklist</a></h3>
-        <p class="journal-editorial__desc">What you need before listing your property for sale, who issues each document, and where the longest delays happen.</p>
-        <span class="journal-editorial__more" aria-hidden="true"><span><a href="blog-post.html">  Read Article</span><i class="fa-solid fa-arrow-right"></i></a></span>
-      </article>
-      <article class="journal-editorial__item" data-category="marketing">
-        <figure class="journal-editorial__media"><img src="assets/images/real-estate/property-03.jpg" alt="Pricing Units in a New Project" loading="lazy" decoding="async"></figure>
-        <div class="journal-editorial__meta"><span class="journal-editorial__cat">Marketing</span><time datetime="2026-06-09">Jun 9, 2026</time></div>
-        <h3 class="journal-editorial__title"><a href="blog-post.html?article=pricing-units">Pricing Units in a New Project</a></h3>
-        <p class="journal-editorial__desc">How a price schedule is built from district data and absorption rate instead of surface-level comparison.</p>
-        <span class="journal-editorial__more" aria-hidden="true"><span><a href="blog-post.html">  Read Article</span><i class="fa-solid fa-arrow-right"></i></a></span>
-      </article>
     </div>
   </div>
 </section>
@@ -1075,6 +1052,9 @@
 </section>
 </div>
 </main>
+<template id="clients-editorial-all-logos">
+  <figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/2.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/3.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/4.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/5.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/6.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/7.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/8.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/10.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/11.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/12.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/13.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/14.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/15.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/16.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/18.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/19.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/20.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/21.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/22.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/23.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/24.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/26.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/27.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/28.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/29.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/30.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/31.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/32.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/34.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/35.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/36.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/37.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/38.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/39.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/40.png" alt="" loading="lazy"></figure><figure class="carousel-slide clients-editorial__logo"><img src="assets/images/brands/logos/41.png" alt="" loading="lazy"></figure>
+</template>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -1131,6 +1111,7 @@
 <script src="assets/js/translations.js"></script>
 <script src="assets/js/language.js"></script>
 <script src="assets/js/carousel.js"></script>
+<script src="assets/js/news-carousel.js?news-brief=20261011000940"></script>
 <script src="assets/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
