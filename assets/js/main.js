@@ -2,6 +2,28 @@
 (function () {
   'use strict';
 
+  /* The client carousel keeps its original controller; populate it with every
+     local logo asset declared by the page, then order the originals naturally. */
+  (function () {
+    var template = document.getElementById('clients-editorial-all-logos');
+    if (!template) return;
+    var extra = Array.prototype.slice.call(template.content.querySelectorAll('.clients-editorial__logo'));
+    document.querySelectorAll('.clients-editorial__carousel .carousel-track').forEach(function (track) {
+      if (track.dataset.allLogosReady) return;
+      var seen = {};
+      track.querySelectorAll('img[src*="assets/images/brands/logos/"]').forEach(function (img) { seen[img.getAttribute('src')] = true; });
+      extra.forEach(function (item) {
+        var copy = item.cloneNode(true), img = copy.querySelector('img'), src = img.getAttribute('src');
+        if (!seen[src]) { track.appendChild(copy); seen[src] = true; }
+      });
+      Array.prototype.slice.call(track.querySelectorAll('.clients-editorial__logo')).sort(function (a, b) {
+        function number(el) { var m = (el.querySelector('img').getAttribute('src') || '').match(/\/(\d+)\.[a-z]+$/i); return m ? Number(m[1]) : 0; }
+        return number(a) - number(b);
+      }).forEach(function (item) { track.appendChild(item); });
+      track.dataset.allLogosReady = 'true';
+    });
+  })();
+
   /* Sticky header */
   var header = document.querySelector('.site-header');
   function onScroll() {
@@ -238,6 +260,39 @@
     setInterval(tick, 60000);
   });
 
+  /* Home announcement: derive the next date from the existing auction cards.
+     No date is duplicated here; when all configured dates have passed, the
+     component changes to a useful listing-state instead of showing negatives. */
+  (function () {
+    var root = document.querySelector('[data-home-auction]');
+    if (!root) return;
+    var title = root.querySelector('[data-auction-title]'), date = root.querySelector('[data-auction-date]');
+    var label = root.querySelector('[data-auction-status]'), link = root.querySelector('[data-auction-link]');
+    var timer = root.querySelector('[data-auction-timer]'), interval;
+    var fields = { days: root.querySelector('[data-home-cd-days]'), hours: root.querySelector('[data-home-cd-hours]'), mins: root.querySelector('[data-home-cd-mins]'), secs: root.querySelector('[data-home-cd-secs]') };
+    function isArabic() { return document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl'; }
+    function copy() { return isArabic() ? { label: 'المزاد القادم', none: 'لا توجد مزادات مجدولة حاليًا', note: 'سنعلن عن الموعد التالي قريبًا', cta: 'تصفح المزادات', ended: 'بدأ المزاد الآن', units: ['يوم', 'ساعة', 'دقيقة', 'ثانية'] } : { label: 'Upcoming auction', none: 'No auction is currently scheduled', note: 'The next date will be announced soon.', cta: 'Browse auctions', ended: 'Auction is now live', units: ['Days', 'Hours', 'Minutes', 'Seconds'] }; }
+    var auctions = Array.prototype.map.call(document.querySelectorAll('.prop-card--auction [data-countdown]'), function (node) {
+      var card = node.closest('.prop-card'), at = new Date(node.getAttribute('data-countdown')).getTime();
+      return { at: at, card: card, dateText: node.querySelector('.prop-card__cd-date') ? node.querySelector('.prop-card__cd-date').textContent.trim() : '', title: card.querySelector('.prop-card__title') };
+    }).filter(function (item) {
+      /* A card marked closed is not an upcoming opportunity even if its stale
+         configured timestamp is later than the viewer's clock. */
+      return !isNaN(item.at) && item.at > Date.now() && item.card.getAttribute('data-status') !== 'closed';
+    }).sort(function (a, b) { return a.at - b.at; });
+    function localized(item) {
+      var candidates = auctions.filter(function (a) { return a.at === item.at; });
+      return candidates.find(function (a) { var block = a.title && a.title.closest('[data-lang]'); return block && block.getAttribute('data-lang') === (isArabic() ? 'ar' : 'en'); }) || item;
+    }
+    function setUnits(words) { Array.prototype.forEach.call(timer.querySelectorAll('[data-unit]'), function (el, i) { el.textContent = words[i]; }); }
+    var item = auctions[0], c = copy(); setUnits(c.units);
+    if (!item) { label.textContent = c.label; title.textContent = c.none; date.textContent = c.note; link.textContent = c.cta; timer.hidden = true; return; }
+    var displayed = localized(item); title.textContent = displayed.title ? displayed.title.textContent.trim() : ''; date.textContent = displayed.dateText; label.textContent = c.label; link.textContent = c.cta; link.href = displayed.title && displayed.title.querySelector('a') ? displayed.title.querySelector('a').href : 'auctions.html';
+    function tick() { var left = Math.max(0, item.at - Date.now()), d = Math.floor(left / 86400000), h = Math.floor(left % 86400000 / 3600000), m = Math.floor(left % 3600000 / 60000), s = Math.floor(left % 60000 / 1000); fields.days.textContent = String(d).padStart(2, '0'); fields.hours.textContent = String(h).padStart(2, '0'); fields.mins.textContent = String(m).padStart(2, '0'); fields.secs.textContent = String(s).padStart(2, '0'); if (!left) { label.textContent = copy().ended; clearInterval(interval); } }
+    tick(); interval = setInterval(tick, 1000);
+    document.addEventListener('aqar:languagechange', function () { c = copy(); displayed = localized(item); setUnits(c.units); label.textContent = c.label; title.textContent = displayed.title ? displayed.title.textContent.trim() : ''; date.textContent = displayed.dateText; link.textContent = c.cta; link.href = displayed.title && displayed.title.querySelector('a') ? displayed.title.querySelector('a').href : 'auctions.html'; });
+  })();
+
   /* Form validation + demo submit state */
   document.querySelectorAll('.js-validate-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
@@ -434,7 +489,7 @@
       var perView = vw >= 1100 ? 3 : 1;
       var gap = vw >= 1100 ? 18 : 14;
       var w = perView === 3 ? (W - gap * 2) / 3 : Math.min(W * (vw >= 700 ? 0.62 : 0.86), 520);
-      return { w: w, gap: gap, h: w / 0.87, perView: perView };
+      return { w: w, gap: gap, h: w / 0.78, perView: perView };
     }
     function layout(noAnim) {
       if (!viewport.offsetParent) return;
@@ -448,12 +503,17 @@
         if (rel > n / 2) rel -= n;                     // centre the loop
         if (n === 2 && rel === -1) rel = 1;
         var prev = slots.get(c);
-        var jump = noAnim || (prev !== undefined && Math.abs(prev - rel) > 1);
+        var jump = noAnim || (prev != null && Math.abs(prev - rel) > 1);
         c.classList.toggle('is-jump', jump);
         slots.set(c, rel);
         var dist = Math.abs(rel);
         var x = rel * (m.w + m.gap) * (rtl() ? -1 : 1);
         var scale = dist === 0 ? 1.06 : 0.97;
+        /* Keep the placement values available to the hover stylesheet. The
+           editorial card can animate its contents without replacing this
+           transform, which is the carousel's positioning contract. */
+        c.style.setProperty('--pc-carousel-x', x + 'px');
+        c.style.setProperty('--pc-carousel-scale', String(scale));
         c.style.transform = 'translateX(' + x + 'px) scale(' + scale + ')';
         c.style.zIndex = String(10 - dist);
         c.style.opacity = dist > 2 ? '0' : dist === 2 ? '.55' : '1';

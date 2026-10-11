@@ -2,9 +2,38 @@
    Arabic (RTL) language-specific rules
    Loaded together with main.css when the site is in Arabic.
    ========================================================= */
+@font-face{
+  font-family:'itfHuwiyaArabic';
+  src:url('../font/Huwiy-Font/itfHuwiyaArabic-Regular.otf') format('opentype');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:'itfHuwiyaArabic';
+  src:url('../font/Huwiy-Font/itfHuwiyaArabic-Medium.otf') format('opentype');
+  font-weight:500;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:'itfHuwiyaArabic';
+  src:url('../font/Huwiy-Font/itfHuwiyaArabic-Bold.otf') format('opentype');
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:'itfHuwiyaArabic';
+  src:url('../font/Huwiy-Font/itfHuwiyaArabic-Black.otf') format('opentype');
+  font-weight:900;
+  font-style:normal;
+  font-display:swap;
+}
+
 :root{
-  --font-heading:'Cairo','Tajawal',sans-serif;
-  --font-body:'IBM Plex Sans Arabic','Tajawal',sans-serif;
+  --font-heading:'itfHuwiyaArabic','Cairo','Tajawal',sans-serif;
+  --font-body:'itfHuwiyaArabic','IBM Plex Sans Arabic','Tajawal',sans-serif;
 }
 
 body{line-height:1.9;letter-spacing:0}
