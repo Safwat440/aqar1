@@ -2876,7 +2876,6 @@ section.section.section-dark.faq-section {
   background: var(--color-primary);
   color: #fff;
   box-shadow: var(--shadow-lg);
-  transform-origin: 50% 0;
 }
 .services-stack__content {
   display: flex;
@@ -2951,6 +2950,10 @@ section.section.section-dark.faq-section {
   .services-stack__item {
     position: sticky;
     inset-block-start: var(--stack-top);
+    /* same tween as the reference: opacity 0, scale 0.9, y 50 (origin centre) */
+    opacity: calc(1 - var(--stack-p, 0));
+    transform: translateY(calc(var(--stack-p, 0) * 50px))
+      scale(calc(1 - var(--stack-p, 0) * 0.1));
   }
   .services-stack__card {
     height: min(
@@ -2958,10 +2961,6 @@ section.section.section-dark.faq-section {
       578px
     );
     min-height: 357px;
-    /* recede by dimming, not opacity: a translucent card would show the one below it */
-    filter: brightness(calc(1 - var(--stack-p, 0) * 0.45));
-    transform: translateY(calc(var(--stack-p, 0) * 40px))
-      scale(calc(1 - var(--stack-p, 0) * 0.1));
   }
 }
 @media (max-width: 991px) {
