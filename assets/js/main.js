@@ -614,8 +614,10 @@
 
 /* Homepage stacked service panels (.services-editorial--stack).
    CSS pins each panel (position: sticky, >=992px, motion allowed); here scroll
-   progress of the next panel over the current one sets --stack-p (0..1), which
-   scales/fades the panel underneath. One rAF-throttled pass per scroll/resize. */
+   sets --stack-p (0..1) on every panel but the last, matching the reference GSAP
+   tween (start "top top" = when the panel pins, default end = one panel height
+   later, scrub, default power1.out ease). Progress is read from the list's
+   untransformed layout, since the panels themselves are transformed. */
 (function () {
   'use strict';
   var lists = document.querySelectorAll('.services-editorial--stack .services-stack');
@@ -627,14 +629,15 @@
     queued = false;
     lists.forEach(function (list) {
       var items = list.querySelectorAll('[data-stack-item]');
+      var listTop = list.getBoundingClientRect().top;
+      var rowGap = parseFloat(getComputedStyle(list).rowGap) || 0;
       items.forEach(function (item, i) {
-        var card = item.firstElementChild;
-        var next = items[i + 1];
-        if (!mq.matches || !next || !list.offsetParent) { card.style.removeProperty('--stack-p'); return; }
-        // 0 while the next panel is a full panel-height below this one, 1 once it covers it
-        var gap = next.getBoundingClientRect().top - item.getBoundingClientRect().top;
-        var p = Math.min(1, Math.max(0, 1 - gap / item.offsetHeight));
-        card.style.setProperty('--stack-p', p.toFixed(4));
+        if (!mq.matches || i === items.length - 1 || !list.offsetParent) { item.style.removeProperty('--stack-p'); return; }
+        var h = item.offsetHeight;
+        var pinTop = parseFloat(getComputedStyle(item).top) || 0;
+        // scroll distance travelled since this panel pinned
+        var t = Math.min(1, Math.max(0, (pinTop - (listTop + i * (h + rowGap))) / h));
+        item.style.setProperty('--stack-p', (1 - (1 - t) * (1 - t)).toFixed(4));
       });
     });
   }
