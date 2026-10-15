@@ -17,16 +17,40 @@
 <link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/arabic.css" id="lang-style">
 <script src="assets/js/preloader.js"></script>
-<style id="about-page-local-styles">
-/* About-page-only presentation. No selector targets the protected CTA, header, or footer. */
-main#main {
-/* background-image: url("./assets/images/Pattern\ 3.svg") !important;
-} */
+<!-- <style id="about-page-local-styles">
 
-main#main section{
-  background-color: transparent !important;
+ 
+
+.about-page .about-story-v2 {
+    padding-block: clamp(38px, 5vw, 66px) 0 !important;
+    background: transparent !important;
+    background-image: none !important;
 }
-</style>
+.about-page #companies-ar, #companies-en {
+    padding-block: clamp(36px, 4vw, 54px) !important;
+    background: transparent !important;
+    background-image: none !important;
+}
+.about-page #leadership-ar, #leadership-en {
+    padding-block: clamp(38px, 4vw, 58px) !important;
+    background: transparent !important;
+    background-image: none !important;
+}
+.about-page .about-values {
+    padding-block: clamp(42px, 5vw, 68px) !important;
+   background: transparent !important;
+    background-image: none !important;
+}
+ section{
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.about-page .about-leadership__copy{margin-block-start:18px}
+.about-page .about-leadership__copy p:last-child{margin-block-end:0}
+.about-page #leadership-ar .card-media,.about-page #leadership-en .card-media{position:relative;aspect-ratio:4/5}
+.about-page #leadership-ar .card-media img,.about-page #leadership-en .card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+</style> -->
 </head>
 <body class="about-page">
 <a class="skip-link" href="#main" data-i18n="nav.skip">تخطَّ إلى المحتوى</a>
@@ -164,13 +188,35 @@ main#main section{
 <span class="anchor-slot" data-anchor="leadership" aria-hidden="true"></span>
 <section class="section" id="leadership-ar">
   <div class="container">
+    <div class="about-leadership__intro">
     <div class="section-head">
       <span class="eyebrow">فريق العمل</span>
       <h2>وراء كل إنجاز… فريق يصنع الفرق</h2>
     </div>
-    <p>نؤمن في عقار ونّ بأن الكفاءات البشرية هي أحد أهم مقومات نجاحنا.</p>
-    <p>يضم فريقنا خبرات متنوعة في المجالات العقارية والتسويقية والإدارية، تعمل بروح التعاون والتكامل لتقديم تجربة مهنية ترتكز على فهم احتياجات العملاء والاهتمام بتفاصيل كل مشروع.</p>
-    <p>وبالجمع بين الخبرة والتخصص والتطوير المستمر، نسعى إلى تقديم حلول عقارية تواكب تطلعات عملائنا ومتغيرات السوق.</p>
+    <div class="about-leadership__copy">
+      <p>نؤمن في عقار ونّ بأن الكفاءات البشرية هي أحد أهم مقومات نجاحنا.</p>
+      <p>يضم فريقنا خبرات متنوعة في المجالات العقارية والتسويقية والإدارية، تعمل بروح التعاون والتكامل لتقديم تجربة مهنية ترتكز على فهم احتياجات العملاء والاهتمام بتفاصيل كل مشروع.</p>
+      <p>وبالجمع بين الخبرة والتخصص والتطوير المستمر، نسعى إلى تقديم حلول عقارية تواكب تطلعات عملائنا ومتغيرات السوق.</p>
+    </div>
+    </div>
+    <div class="grid grid-4 reveal-stagger">
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images.jpg" alt="صورة عضو فريق عقار ونّ" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[الاسم]]</h4><p>[[المنصب]]</p></div>
+      </div>
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images2.jpg" alt="صورة عضو فريق عقار ونّ" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[الاسم]]</h4><p>[[المنصب]]</p></div>
+      </div>
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images3.jpg" alt="صورة عضو فريق عقار ونّ" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[الاسم]]</h4><p>[[المنصب]]</p></div>
+      </div>
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images4.jpg" alt="صورة عضو فريق عقار ونّ" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[الاسم]]</h4><p>[[المنصب]]</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -305,13 +351,35 @@ main#main section{
 <span class="anchor-slot" data-anchor="leadership" aria-hidden="true"></span>
 <section class="section" id="leadership-en">
   <div class="container">
+    <div class="about-leadership__intro">
     <div class="section-head">
       <span class="eyebrow">Our Team</span>
       <h2>Behind Every Achievement… A Team That Makes the Difference</h2>
     </div>
-    <p>At Aqar One, we believe our people are one of the most important foundations of our success.</p>
-    <p>Our team brings together diverse expertise in real estate, marketing and administration, working with a spirit of collaboration and integration to deliver a professional experience grounded in understanding clients' needs and attention to the details of every project.</p>
-    <p>By combining expertise, specialization and continuous development, we strive to provide real estate solutions that keep pace with our clients' aspirations and market changes.</p>
+    <div class="about-leadership__copy">
+      <p>At Aqar One, we believe our people are one of the most important foundations of our success.</p>
+      <p>Our team brings together diverse expertise in real estate, marketing and administration, working with a spirit of collaboration and integration to deliver a professional experience grounded in understanding clients' needs and attention to the details of every project.</p>
+      <p>By combining expertise, specialization and continuous development, we strive to provide real estate solutions that keep pace with our clients' aspirations and market changes.</p>
+    </div>
+    </div>
+    <div class="grid grid-4 reveal-stagger">
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images.jpg" alt="Aqar One team member photo" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[Name]]</h4><p>[[Title]]</p></div>
+      </div>
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images2.jpg" alt="Aqar One team member photo" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[Name]]</h4><p>[[Title]]</p></div>
+      </div>
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images3.jpg" alt="Aqar One team member photo" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[Name]]</h4><p>[[Title]]</p></div>
+      </div>
+      <div class="card">
+        <div class="card-media" data-slot="leader-photo"><img src="assets/images/person/images4.jpg" alt="Aqar One team member photo" loading="lazy" decoding="async"></div>
+        <div class="card-body text-center"><h4>[[Name]]</h4><p>[[Title]]</p></div>
+      </div>
+    </div>
   </div>
 </section>
 

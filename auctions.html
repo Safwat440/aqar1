@@ -58,14 +58,14 @@
   <div class="container">
     <div class="filter-bar" data-target="#auction-list-ar">
       <div class="field"><label for="f-city-ar">المدينة</label>
-        <select id="f-city-ar" data-filter="city"><option value="">كل المدن</option><option value="jeddah">جدة</option><option>مكة المكرمة</option><option>الرياض</option></select></div>
+        <select id="f-city-ar" data-filter="city"><option value="">كل المدن</option><option value="jeddah">جدة</option><option value="makkah">مكة المكرمة</option><option value="riyadh">الرياض</option></select></div>
       <div class="field"><label for="f-type-ar">نوع العقار</label>
         <select id="f-type-ar" data-filter="type"><option value="">كل الأنواع</option><option value="land">أراضٍ</option><option value="buildings">عمائر</option><option value="villas">فلل</option><option value="commercial">وحدات تجارية</option><option value="warehouses">مستودعات</option></select></div>
       <div class="field"><label for="f-status-ar">حالة المزاد</label>
         <select id="f-status-ar" data-filter="status"><option value="">كل الحالات</option><option value="upcoming">قادم</option><option value="open">التسجيل مفتوح</option><option value="live">جارٍ الآن</option><option value="closed">التسجيل مغلق</option><option value="ended">انتهى</option><option value="cancelled">ملغي</option></select></div>
       <div class="field"><label for="f-sort-ar">الترتيب</label>
-        <select id="f-sort-ar"><option>الأقرب موعدًا</option><option>الأحدث إضافة</option></select></div>
-      <button class="btn btn-outline btn-sm js-clear-filters" type="button">مسح الكل</button>
+        <select id="f-sort-ar" data-sort><option value="date">الأقرب موعدًا</option><option value="added">الأحدث إضافة</option></select></div>
+      <div class="filter-bar__actions"><button class="btn btn-outline btn-sm js-filter-open" type="button" aria-haspopup="dialog"><i class="fa-solid fa-sliders" aria-hidden="true"></i> فلترة <span class="badge badge-gold js-filter-badge" hidden></span></button><button class="btn btn-outline btn-sm js-clear-filters" type="button">مسح الكل</button></div>
     </div>
     <div class="cluster" style="justify-content:space-between;margin-block-end:20px">
       <h2 style="margin:0;font-size:1.2rem">كل المزادات</h2>
@@ -170,14 +170,14 @@
   <div class="container">
     <div class="filter-bar" data-target="#auction-list-en">
       <div class="field"><label for="f-city-en">City</label>
-        <select id="f-city-en" data-filter="city"><option value="">All Cities</option><option value="jeddah">Jeddah</option><option>Makkah</option><option>Riyadh</option></select></div>
+        <select id="f-city-en" data-filter="city"><option value="">All Cities</option><option value="jeddah">Jeddah</option><option value="makkah">Makkah</option><option value="riyadh">Riyadh</option></select></div>
       <div class="field"><label for="f-type-en">Property Type</label>
         <select id="f-type-en" data-filter="type"><option value="">All Types</option><option value="land">Land</option><option value="buildings">Buildings</option><option value="villas">Villas</option><option value="commercial">Commercial Units</option><option value="warehouses">Warehouses</option></select></div>
       <div class="field"><label for="f-status-en">Auction Status</label>
         <select id="f-status-en" data-filter="status"><option value="">All Statuses</option><option value="upcoming">Upcoming</option><option value="open">Registration Open</option><option value="live">Live Now</option><option value="closed">Registration Closed</option><option value="ended">Ended</option><option value="cancelled">Cancelled</option></select></div>
       <div class="field"><label for="f-sort-en">Sort By</label>
-        <select id="f-sort-en"><option>Nearest Date</option><option>Recently Added</option></select></div>
-      <button class="btn btn-outline btn-sm js-clear-filters" type="button">Clear All</button>
+        <select id="f-sort-en" data-sort><option value="date">Nearest Date</option><option value="added">Recently Added</option></select></div>
+      <div class="filter-bar__actions"><button class="btn btn-outline btn-sm js-filter-open" type="button" aria-haspopup="dialog"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filters <span class="badge badge-gold js-filter-badge" hidden></span></button><button class="btn btn-outline btn-sm js-clear-filters" type="button">Clear All</button></div>
     </div>
     <div class="cluster" style="justify-content:space-between;margin-block-end:20px">
       <h2 style="margin:0;font-size:1.2rem">All Auctions</h2>

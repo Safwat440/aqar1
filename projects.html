@@ -59,11 +59,11 @@
       <div class="field"><label for="pf-city-ar">المدينة</label><select id="pf-city-ar" data-filter="city"><option value="">كل المدن</option><option value="jeddah">جدة</option></select></div>
       <div class="field"><label for="pf-type-ar">نوع الوحدة</label><select id="pf-type-ar" data-filter="type"><option value="">كل الأنواع</option><option value="apartments">شقق سكنية</option><option value="villas">فلل مستقلة</option><option value="commercial">وحدات تجارية</option><option value="compound">مجمع سكني</option></select></div>
       <div class="field"><label for="pf-status-ar">حالة المشروع</label><select id="pf-status-ar" data-filter="status"><option value="">كل الحالات</option><option value="construction">تحت الإنشاء</option><option value="completed">مكتمل</option><option value="soon">قريبًا</option></select></div>
-      <div class="field"><label for="pf-sort-ar">الترتيب</label><select id="pf-sort-ar"><option>الأحدث إضافة</option><option>الأقرب تسليمًا</option></select></div>
-      <button class="btn btn-outline btn-sm js-clear-filters" type="button">مسح الكل</button>
+      <div class="field"><label for="pf-sort-ar">الترتيب</label><select id="pf-sort-ar" data-sort><option value="added">الأحدث إضافة</option><option value="delivery">الأقرب تسليمًا</option></select></div>
+      <div class="filter-bar__actions"><button class="btn btn-outline btn-sm js-filter-open" type="button" aria-haspopup="dialog"><i class="fa-solid fa-sliders" aria-hidden="true"></i> فلترة <span class="badge badge-gold js-filter-badge" hidden></span></button><button class="btn btn-outline btn-sm js-clear-filters" type="button">مسح الكل</button></div>
     </div>
     <p class="muted" style="margin-block-end:20px">النتائج: <strong data-results-count>9</strong></p>
-    <div class="grid grid-3" id="project-list-ar"><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="apartments">
+    <div class="grid grid-3" id="project-list-ar"><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="construction" data-type="apartments">
           <img class="prop-card__img" src="assets/images/real-estate/property-01.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">شقق سكنية</span>
@@ -73,7 +73,7 @@
             <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">تحت الإنشاء</span></p>
             <a class="prop-card__more" href="project-details.html?project=coastal-residences"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="commercial">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="construction" data-type="commercial">
           <img class="prop-card__img" src="assets/images/real-estate/property-02.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">وحدات تجارية</span>
@@ -83,7 +83,7 @@
             <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">تحت الإنشاء</span></p>
             <a class="prop-card__more" href="project-details.html?project=north-commercial"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="villas">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="completed" data-type="villas">
           <img class="prop-card__img" src="assets/images/real-estate/property-03.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">فلل مستقلة</span>
@@ -93,7 +93,7 @@
             <p class="prop-card__desc"><span class="badge badge-open prop-card__status">مكتمل</span></p>
             <a class="prop-card__more" href="project-details.html?project=rawda-villas"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="apartments">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="completed" data-type="apartments">
           <img class="prop-card__img" src="assets/images/real-estate/hero-01.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">شقق سكنية</span>
@@ -103,7 +103,7 @@
             <p class="prop-card__desc"><span class="badge badge-open prop-card__status">مكتمل</span></p>
             <a class="prop-card__more" href="project-details.html?project=salama-apartments"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="compound">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="soon" data-type="compound">
           <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">مجمع سكني</span>
@@ -113,7 +113,7 @@
             <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">قريبًا</span></p>
             <a class="prop-card__more" href="project-details.html?project=coming-compound"><span>تفاصيل المشروع</span><i class="fa-solid fa-arrow-left"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="commercial">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="soon" data-type="commercial">
           <img class="prop-card__img" src="assets/images/real-estate/hero-03.jpg" alt="مشروع عقاري" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">وحدات تجارية</span>
@@ -149,11 +149,11 @@
       <div class="field"><label for="pf-city-en">City</label><select id="pf-city-en" data-filter="city"><option value="">All Cities</option><option value="jeddah">Jeddah</option></select></div>
       <div class="field"><label for="pf-type-en">Unit Type</label><select id="pf-type-en" data-filter="type"><option value="">All Types</option><option value="apartments">Residential Apartments</option><option value="villas">Standalone Villas</option><option value="commercial">Commercial Units</option><option value="compound">Residential Compound</option></select></div>
       <div class="field"><label for="pf-status-en">Project Status</label><select id="pf-status-en" data-filter="status"><option value="">All Statuses</option><option value="construction">Under Construction</option><option value="completed">Completed</option><option value="soon">Coming Soon</option></select></div>
-      <div class="field"><label for="pf-sort-en">Sort By</label><select id="pf-sort-en"><option>Recently Added</option><option>Nearest Delivery</option></select></div>
-      <button class="btn btn-outline btn-sm js-clear-filters" type="button">Clear All</button>
+      <div class="field"><label for="pf-sort-en">Sort By</label><select id="pf-sort-en" data-sort><option value="added">Recently Added</option><option value="delivery">Nearest Delivery</option></select></div>
+      <div class="filter-bar__actions"><button class="btn btn-outline btn-sm js-filter-open" type="button" aria-haspopup="dialog"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filters <span class="badge badge-gold js-filter-badge" hidden></span></button><button class="btn btn-outline btn-sm js-clear-filters" type="button">Clear All</button></div>
     </div>
     <p class="muted" style="margin-block-end:20px">Results: <strong data-results-count>9</strong></p>
-    <div class="grid grid-3" id="project-list-en"><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="apartments">
+    <div class="grid grid-3" id="project-list-en"><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="construction" data-type="apartments">
           <img class="prop-card__img" src="assets/images/real-estate/property-01.jpg" alt="Real estate project" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">Residential Apartments</span>
@@ -163,7 +163,7 @@
             <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">Under Construction</span></p>
             <a class="prop-card__more" href="project-details.html?project=coastal-residences"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="construction" data-type="commercial">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="construction" data-type="commercial">
           <img class="prop-card__img" src="assets/images/real-estate/property-02.jpg" alt="Real estate project" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">Commercial Units</span>
@@ -173,7 +173,7 @@
             <p class="prop-card__desc"><span class="badge badge-upcoming prop-card__status">Under Construction</span></p>
             <a class="prop-card__more" href="project-details.html?project=north-commercial"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="villas">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="completed" data-type="villas">
           <img class="prop-card__img" src="assets/images/real-estate/property-03.jpg" alt="Real estate project" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">Standalone Villas</span>
@@ -183,7 +183,7 @@
             <p class="prop-card__desc"><span class="badge badge-open prop-card__status">Completed</span></p>
             <a class="prop-card__more" href="project-details.html?project=rawda-villas"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="completed" data-type="apartments">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="completed" data-type="apartments">
           <img class="prop-card__img" src="assets/images/real-estate/hero-01.jpg" alt="Real estate project" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">Residential Apartments</span>
@@ -193,7 +193,7 @@
             <p class="prop-card__desc"><span class="badge badge-open prop-card__status">Completed</span></p>
             <a class="prop-card__more" href="project-details.html?project=salama-apartments"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="compound">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="soon" data-type="compound">
           <img class="prop-card__img" src="assets/images/real-estate/hero-02.jpg" alt="Real estate project" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">Residential Compound</span>
@@ -203,7 +203,7 @@
             <p class="prop-card__desc"><span class="badge badge-gold prop-card__status">Coming Soon</span></p>
             <a class="prop-card__more" href="project-details.html?project=coming-compound"><span>Project Details</span><i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article><article class="prop-card prop-card--project reveal" data-card data-status="soon" data-type="commercial">
+        </article><article class="prop-card prop-card--project reveal" data-card data-city="jeddah" data-status="soon" data-type="commercial">
           <img class="prop-card__img" src="assets/images/real-estate/hero-03.jpg" alt="Real estate project" loading="lazy" decoding="async">
           <span class="prop-card__shade" aria-hidden="true"></span>
           <span class="prop-card__badge">Commercial Units</span>
