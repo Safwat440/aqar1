@@ -7107,7 +7107,7 @@ section.section.section-dark {
 .clients-editorial__logo img {
   display: block;
   max-width: 100%;
-  max-height: 72px;
+  max-height: 140px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -7167,6 +7167,9 @@ section.section.section-dark {
   min-height: 138px;
   margin: 0;
   background: rgb(254 253 252);
+  min-height: 150px;
+    
+    display: flex;
 }
 .clients-editorial__carousel .carousel-controls {
   margin-block-start: 26px;

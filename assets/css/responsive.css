@@ -10,6 +10,7 @@
 @media (min-width:3840px){:root{--container-width:2080px}.site-header .container{max-width:var(--container-width)}}
 @media (min-width:1280px){.site-header .header-grid{gap:clamp(24px,3vw,54px)}.main-nav>ul{gap:clamp(8px,1.1vw,22px)}.journal-editorial__grid,.grid.grid-3{grid-template-columns:repeat(3,minmax(0,390px));justify-content:space-between}.grid.grid-4{grid-template-columns:repeat(4,minmax(0,285px));justify-content:space-between}.article-content{max-width:min(860px,62vw)}.clients-editorial__carousel .clients-editorial__logo{flex-basis:clamp(190px,14vw,260px)}}
 @media (min-width:1280px) and (max-width:1599px){.grid.grid-3,.journal-editorial__grid{grid-template-columns:repeat(3,minmax(0,1fr));justify-content:normal}.grid.grid-4{grid-template-columns:repeat(4,minmax(0,1fr));justify-content:normal}}
+
 @media (min-width:1600px){.prop-section .container{max-width:1320px}.prop-carousel__viewport{max-width:1320px;margin-inline:auto}.prop-carousel__nav--prev{inset-inline-start:max(-28px,0px/2 - 28px))}.prop-carousel__nav--next{inset-inline-end:max(-28px,0px/2 - 28px))}.prop-card--auction,.prop-carousel__viewport>.prop-card--project.is-center{max-width:420px;margin-inline:auto}}
 @media (max-width:767px){.prop-card--auction,.prop-carousel__viewport>.prop-card--project.is-center{aspect-ratio:.82!important}.prop-card--auction .prop-card__body,.prop-carousel__viewport>.prop-card--project.is-center .prop-card__body{padding:16px 17px 18px!important}.prop-card--auction:is(:hover,:focus-within),.prop-carousel__viewport>.prop-card--project.is-center:is(:hover,:focus-within){transform:none!important}}
 @media (max-width:1439px){
@@ -135,14 +136,58 @@
   .form-card{padding:22px}
   .cta-banner{padding:24px}
 }
-@media (max-width:900px){.auction-countdown__inner{grid-template-columns:1fr}.clients-editorial__grid{grid-template-columns:repeat(3,minmax(0,1fr)}}
-@media (max-width:575px){.auction-countdown__panel{grid-template-columns:1fr;padding:22px}.auction-countdown__timer{width:100%}.clients-editorial__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.clients-editorial__logo{min-height:105px;padding:18px}.clients-editorial__logo img{max-height:56px}}
+@media (max-width:900px){.auction-countdown__inner{grid-template-columns:1fr}.clients-editorial__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:575px){.auction-countdown__panel{grid-template-columns:1fr;padding:22px}.auction-countdown__timer{width:100%}.clients-editorial__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.clients-editorial__logo{min-height:105px;padding:18px}.clients-editorial__logo img{max-height:130px}}
 
 /* Keep editorial reading widths intentional on ultrawide canvases instead of
    spreading three cards across an entire television-sized container. */
-@media (min-width:1600px){.journal-editorial__grid,.grid.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));width:100%;max-width:1320px;margin-inline:auto}.grid.grid-4{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:1280px;margin-inline:auto}.clients-editorial__carousel{max-width:1320px;margin-inline:auto}.clients-editorial__carousel .carousel-track{padding-inline:18px}}
-@media (min-width:2560px){.site-header .header-grid{max-width:1760px;margin-inline:auto}.hero-video__content{max-width:1760px;margin-inline:auto}.auction-countdown__inner{max-width:1480px}.auction-countdown__panel{padding:44px}.clients-editorial__carousel{max-width:1440px}}
+@media (min-width:1600px){.journal-editorial__grid,.grid.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));width:100%;max-width:1320px;margin-inline:auto}.grid.grid-4{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:1280px;margin-inline:auto}.clients-editorial__carousel{max-width:1480px;margin-inline:auto}.clients-editorial__carousel .carousel-track{padding-inline:18px}}
+@media (min-width:2560px){.site-header .header-grid{max-width:1760px;margin-inline:auto}.hero-video__content{max-width:1760px;margin-inline:auto}.auction-countdown__inner{max-width:1480px}.auction-countdown__panel{padding:44px}}
 @media (min-width:1280px) and (max-width:1599px){.journal-editorial__grid,.grid.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));justify-content:normal}.grid.grid-4{grid-template-columns:repeat(4,minmax(0,1fr));justify-content:normal}}
+/* Clients carousel — desktop shows exactly six whole cards. Each card is one sixth of the track's content box minus
+   the five gaps; the carousel max-width caps how large cards get on very wide screens. Logo PNGs are square canvases,
+   so the image box is contained in the card's content area (object-fit:contain) and can never overflow it. */
+@media (min-width:1280px){
+  .clients-editorial__carousel .carousel-track{--clients-gap:clamp(16px,1.4vw,28px);gap:var(--clients-gap)}
+  .clients-editorial__carousel .clients-editorial__logo{flex:0 0 calc((100% - 5 * var(--clients-gap)) / 6);width:auto;height:auto;min-height:0;padding:clamp(12px,0.9vw,20px);box-sizing:border-box;overflow:hidden;container-type:inline-size}
+  .clients-editorial__carousel .clients-editorial__logo img{width:100%;height:100cqw;max-width:100%;max-height:100cqw;margin:0;object-fit:contain;object-position:center}
+}
+@media (min-width:1920px){.clients-editorial__carousel{max-width:1680px}}
+@media (min-width:2560px){.clients-editorial__carousel{max-width:1920px}}
+
+/* Home news brief — larger cards from 1400px. --nb-card drives the card width; each figure keeps its original
+   height-to-width ratio (tall 312/224, medium-tall 286/224, medium 258/224, short 234/224) so the staggered rhythm survives. */
+@media (min-width:1400px){
+  .home-page .news-brief__track{--nb-card:clamp(250px,18.4vw,280px);gap:clamp(14px,1.05vw,18px)}
+  .home-page .news-brief__slide{flex-basis:var(--nb-card)}
+  .home-page .news-brief__slide figure,.home-page .news-brief__slide[data-size="tall"] figure{height:calc(var(--nb-card) * 1.393)}
+  .home-page .news-brief__slide[data-size="medium-tall"] figure{height:calc(var(--nb-card) * 1.277)}
+  .home-page .news-brief__slide[data-size="medium"] figure{height:calc(var(--nb-card) * 1.152)}
+  .home-page .news-brief__slide[data-size="short"] figure{height:calc(var(--nb-card) * 1.045)}
+  .home-page .news-brief__tag{font-size:0.74rem;margin-bottom:5px}
+  .home-page .news-brief__slide h3{font-size:clamp(0.98rem,0.72vw,1.05rem);margin-bottom:10px}
+  .home-page .news-brief__slide a.r-more{padding:9px;font-size:0.95rem}
+}
+@media (min-width:1600px){
+  .home-page .news-brief__track{--nb-card:clamp(290px,18.2vw,330px);gap:20px}
+  .home-page .news-brief__slide figure{border-radius:10px}
+  .home-page .news-brief__tag{font-size:0.8rem}
+  .home-page .news-brief__slide h3{font-size:1.1rem;margin-bottom:12px}
+  .home-page .news-brief__slide a.r-more{padding:10px;font-size:1rem}
+}
+@media (min-width:1920px){
+  .home-page .news-brief__track{--nb-card:clamp(340px,18vw,390px);gap:24px}
+  .home-page .news-brief__tag{font-size:0.86rem;margin-bottom:6px}
+  .home-page .news-brief__slide h3{font-size:1.22rem;margin-bottom:14px}
+  .home-page .news-brief__slide a.r-more{padding:12px;font-size:1.06rem}
+}
+@media (min-width:2560px){
+  .home-page .news-brief__track{--nb-card:clamp(400px,15.6vw,440px);gap:28px}
+  .home-page .news-brief__slide figure{border-radius:12px}
+  .home-page .news-brief__tag{font-size:0.94rem}
+  .home-page .news-brief__slide h3{font-size:1.36rem;margin-bottom:16px}
+  .home-page .news-brief__slide a.r-more{padding:14px;font-size:1.14rem}
+}
 
 /* ----- Extra-narrow phones (≤359px) ----- */
 @media (max-width:359px){
