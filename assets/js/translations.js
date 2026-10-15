@@ -57,6 +57,14 @@ window.translations = {
     'ui.next': 'التالي',
     'ui.customersTitle': 'عملاؤنا',
     'ui.customersSub': 'جهات ومطوّرون وملّاك تعاملنا معهم منذ 2011',
+
+    // Listing filter sheet (auctions / projects)
+    'filter.title': 'فلترة',
+    'filter.close': 'إغلاق',
+    'filter.reset': 'مسح الكل',
+    'filter.apply': 'اعرض النتائج ({n})',
+    'filter.multiple': '{n} محددة',
+    'filter.empty': 'لا توجد نتائج مطابقة للفلاتر المختارة.',
   },
   en: {
     'nav.home': 'Home',
@@ -109,5 +117,13 @@ window.translations = {
     'ui.next': 'Next',
     'ui.customersTitle': 'Our Clients',
     'ui.customersSub': "Entities, developers and owners we've worked with since 2011",
+
+    // Listing filter sheet (auctions / projects)
+    'filter.title': 'Filters',
+    'filter.close': 'Close',
+    'filter.reset': 'Clear All',
+    'filter.apply': 'Show results ({n})',
+    'filter.multiple': '{n} selected',
+    'filter.empty': 'No results match the selected filters.',
   },
 };

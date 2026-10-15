@@ -158,32 +158,198 @@
     });
   });
 
-  /* Listing filters (auctions / projects) — scoped to the same .i18n-block */
+  /* Listing filters (auctions / projects) — scoped to the same .i18n-block.
+     The bar's selects are quick single-value filters; .js-filter-open opens a sheet
+     (centred panel on desktop, bottom sheet on mobile) with multi-select pills built
+     from those same selects. Both drive one state: OR within a group, AND across groups.
+     The sheet edits a draft — results change only on "Show results"; closing discards it.
+     select[data-sort] only reorders cards, it never hides any. */
+  var filterSheetSeq = 0;
   document.querySelectorAll('.filter-bar[data-target]').forEach(function (bar) {
     var scope = bar.closest('.i18n-block') || document;
     var list = scope.querySelector(bar.getAttribute('data-target'));
     if (!list) return;
-    var selects = bar.querySelectorAll('select[data-filter]');
+    var lang = (scope.getAttribute && scope.getAttribute('data-lang')) || 'ar';
+    var dict = (window.translations && window.translations[lang]) || {};
+    function t(key, n) { return String(dict[key] || key).replace('{n}', n); }
+
+    var selects = Array.prototype.slice.call(bar.querySelectorAll('select[data-filter]'));
+    var sortSelect = bar.querySelector('select[data-sort]');
     var clearBtn = bar.querySelector('.js-clear-filters');
-    function apply() {
-      var filters = {};
-      selects.forEach(function (s) { if (s.value) filters[s.getAttribute('data-filter')] = s.value; });
-      var visible = 0;
-      list.querySelectorAll('[data-card]').forEach(function (card) {
-        var match = Object.keys(filters).every(function (key) {
-          return card.getAttribute('data-' + key) === filters[key];
-        });
-        card.style.display = match ? '' : 'none';
-        if (match) visible++;
+    var openBtn = bar.querySelector('.js-filter-open');
+    var badge = bar.querySelector('.js-filter-badge');
+    var counter = bar.parentElement.querySelector('[data-results-count]');
+    var cards = Array.prototype.slice.call(list.querySelectorAll('[data-card]'));
+    var keys = selects.map(function (s) { return s.getAttribute('data-filter'); });
+    var state = {};
+    keys.forEach(function (k) { state[k] = []; });
+
+    function matches(card, st) {
+      return keys.every(function (k) {
+        return !st[k].length || st[k].indexOf(card.getAttribute('data-' + k)) !== -1;
       });
-      var counter = bar.parentElement.querySelector('[data-results-count]');
-      if (counter) counter.textContent = visible;
     }
-    selects.forEach(function (s) { s.addEventListener('change', apply); });
-    if (clearBtn) clearBtn.addEventListener('click', function () {
-      selects.forEach(function (s) { s.selectedIndex = 0; });
-      apply();
+    function countFor(st) {
+      return cards.filter(function (c) { return matches(c, st); }).length;
+    }
+    function copy(st) {
+      var out = {};
+      keys.forEach(function (k) { out[k] = st[k].slice(); });
+      return out;
+    }
+
+    var empty = document.createElement('p');
+    empty.className = 'muted filter-empty';
+    empty.setAttribute('role', 'status');
+    empty.textContent = t('filter.empty');
+    empty.hidden = true;
+    list.parentNode.insertBefore(empty, list.nextSibling);
+
+    // Keep each bar select in step with the state; several values show as "N selected".
+    function syncSelects() {
+      selects.forEach(function (s) {
+        var vals = state[s.getAttribute('data-filter')];
+        var multi = s.querySelector('option[data-multi]');
+        if (vals.length > 1) {
+          if (!multi) {
+            multi = document.createElement('option');
+            multi.setAttribute('data-multi', '');
+            multi.disabled = true;
+            s.appendChild(multi);
+          }
+          multi.textContent = t('filter.multiple', vals.length);
+          multi.selected = true;
+        } else {
+          if (multi) multi.remove();
+          s.value = vals.length ? vals[0] : '';
+        }
+      });
+    }
+
+    function sortCards() {
+      if (!sortSelect) return;
+      var mode = sortSelect.value;
+      var rank = { completed: 0, construction: 1, soon: 2 };
+      var sorted = cards.slice();
+      if (mode === 'date') {
+        var time = function (c) {
+          var el = c.querySelector('[data-countdown]');
+          var v = el ? Date.parse(el.getAttribute('data-countdown')) : NaN;
+          return isNaN(v) ? Infinity : v;
+        };
+        sorted.sort(function (a, b) { return time(a) - time(b); });
+      } else if (mode === 'delivery') {
+        // No delivery dates in the data: nearest delivery = completed, then under construction, then coming soon.
+        var r = function (c) { var v = rank[c.getAttribute('data-status')]; return v == null ? 9 : v; };
+        sorted.sort(function (a, b) { return r(a) - r(b); });
+      } // 'added' = original document order
+      sorted.forEach(function (c) { list.appendChild(c); });
+    }
+
+    function render() {
+      var visible = 0;
+      cards.forEach(function (card) {
+        var ok = matches(card, state);
+        card.style.display = ok ? '' : 'none';
+        if (ok) visible++;
+      });
+      if (counter) counter.textContent = visible;
+      empty.hidden = visible !== 0;
+      var active = keys.reduce(function (n, k) { return n + state[k].length; }, 0);
+      if (badge) { badge.textContent = active; badge.hidden = active === 0; }
+      syncSelects();
+    }
+
+    selects.forEach(function (s) {
+      s.addEventListener('change', function () {
+        var opt = s.options[s.selectedIndex];
+        if (opt && opt.hasAttribute('data-multi')) return;
+        state[s.getAttribute('data-filter')] = s.value ? [s.value] : [];
+        render();
+      });
     });
+    if (sortSelect) sortSelect.addEventListener('change', sortCards);
+    if (clearBtn) clearBtn.addEventListener('click', function () {
+      keys.forEach(function (k) { state[k] = []; });
+      render();
+    });
+
+    if (openBtn) {
+      var draft = copy(state);
+      var uid = 'filter-sheet-' + (++filterSheetSeq);
+      var sheet = document.createElement('div');
+      sheet.className = 'filter-sheet';
+      sheet.hidden = true;
+      sheet.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      sheet.setAttribute('lang', lang);
+      var panel = '<div class="filter-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="' + uid + '-title">' +
+        '<div class="filter-sheet__head"><h2 id="' + uid + '-title">' + t('filter.title') + '</h2>' +
+        '<button type="button" class="filter-sheet__close" data-sheet-close aria-label="' + t('filter.close') + '">&times;</button></div>' +
+        '<div class="filter-sheet__body">';
+      selects.forEach(function (s) {
+        var key = s.getAttribute('data-filter');
+        var label = bar.querySelector('label[for="' + s.id + '"]');
+        var pills = '';
+        Array.prototype.forEach.call(s.options, function (o) {
+          if (!o.value || o.hasAttribute('data-multi')) return;
+          // Only offer values that exist in the real cards.
+          var exists = cards.some(function (c) { return c.getAttribute('data-' + key) === o.value; });
+          if (!exists) return;
+          var id = uid + '-' + key + '-' + o.value;
+          pills += '<div class="radio-pill"><input type="checkbox" id="' + id + '" data-key="' + key + '" value="' + o.value + '">' +
+            '<label for="' + id + '">' + o.textContent + '</label></div>';
+        });
+        if (pills) panel += '<fieldset><legend>' + (label ? label.textContent : key) + '</legend><div class="radio-group">' + pills + '</div></fieldset>';
+      });
+      panel += '</div><div class="filter-sheet__foot">' +
+        '<button type="button" class="btn btn-outline btn-sm" data-sheet-reset>' + t('filter.reset') + '</button>' +
+        '<button type="button" class="btn btn-gold" data-sheet-apply></button></div></div>';
+      sheet.innerHTML = panel;
+      document.body.appendChild(sheet);
+
+      var applyBtn = sheet.querySelector('[data-sheet-apply]');
+      var boxes = Array.prototype.slice.call(sheet.querySelectorAll('input[type="checkbox"]'));
+      var updateApply = function () { applyBtn.textContent = t('filter.apply', countFor(draft)); };
+      var readDraft = function () {
+        keys.forEach(function (k) { draft[k] = []; });
+        boxes.forEach(function (b) { if (b.checked) draft[b.getAttribute('data-key')].push(b.value); });
+        updateApply();
+      };
+      var openSheet = function () {
+        draft = copy(state);
+        boxes.forEach(function (b) { b.checked = draft[b.getAttribute('data-key')].indexOf(b.value) !== -1; });
+        updateApply();
+        sheet.hidden = false;
+        document.documentElement.classList.add('filter-sheet-open');
+        openBtn.setAttribute('aria-expanded', 'true');
+        (boxes[0] || applyBtn).focus();
+      };
+      var closeSheet = function () {
+        if (sheet.hidden) return;
+        sheet.hidden = true;
+        document.documentElement.classList.remove('filter-sheet-open');
+        openBtn.setAttribute('aria-expanded', 'false');
+        openBtn.focus();
+      };
+      openBtn.setAttribute('aria-expanded', 'false');
+      openBtn.addEventListener('click', openSheet);
+      boxes.forEach(function (b) { b.addEventListener('change', readDraft); });
+      sheet.querySelector('[data-sheet-close]').addEventListener('click', closeSheet);
+      sheet.querySelector('[data-sheet-reset]').addEventListener('click', function () {
+        boxes.forEach(function (b) { b.checked = false; });
+        readDraft();
+      });
+      applyBtn.addEventListener('click', function () {
+        state = copy(draft);
+        render();
+        closeSheet();
+      });
+      sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+    }
+
+    sortCards();
+    render();
   });
 
   /* Scroll reveal */
@@ -285,12 +451,20 @@
       return candidates.find(function (a) { var block = a.title && a.title.closest('[data-lang]'); return block && block.getAttribute('data-lang') === (isArabic() ? 'ar' : 'en'); }) || item;
     }
     function setUnits(words) { Array.prototype.forEach.call(timer.querySelectorAll('[data-unit]'), function (el, i) { el.textContent = words[i]; }); }
-    var item = auctions[0], c = copy(); setUnits(c.units);
-    if (!item) { label.textContent = c.label; title.textContent = c.none; date.textContent = c.note; link.textContent = c.cta; timer.hidden = true; return; }
-    var displayed = localized(item); title.textContent = displayed.title ? displayed.title.textContent.trim() : ''; date.textContent = displayed.dateText; label.textContent = c.label; link.textContent = c.cta; link.href = displayed.title && displayed.title.querySelector('a') ? displayed.title.querySelector('a').href : 'auctions.html';
-    function tick() { var left = Math.max(0, item.at - Date.now()), d = Math.floor(left / 86400000), h = Math.floor(left % 86400000 / 3600000), m = Math.floor(left % 3600000 / 60000), s = Math.floor(left % 60000 / 1000); fields.days.textContent = String(d).padStart(2, '0'); fields.hours.textContent = String(h).padStart(2, '0'); fields.mins.textContent = String(m).padStart(2, '0'); fields.secs.textContent = String(s).padStart(2, '0'); if (!left) { label.textContent = copy().ended; clearInterval(interval); } }
+    /* Demo mode: the timer counts down 100 days from page load. The deadline is
+       fixed once here and never derived from the auction cards, so stale
+       auction dates cannot overwrite it. */
+    var DEMO_DAYS = 100, endAt = Date.now() + DEMO_DAYS * 86400000;
+    var item = auctions[0], c = copy(), displayed; setUnits(c.units);
+    function renderDetails() {
+      label.textContent = c.label; link.textContent = c.cta;
+      if (!item) { title.textContent = c.none; date.textContent = c.note; return; }
+      displayed = localized(item); title.textContent = displayed.title ? displayed.title.textContent.trim() : ''; date.textContent = displayed.dateText; link.href = displayed.title && displayed.title.querySelector('a') ? displayed.title.querySelector('a').href : 'auctions.html';
+    }
+    renderDetails();
+    function tick() { var left = Math.max(0, Math.ceil((endAt - Date.now()) / 1000) * 1000), d = Math.floor(left / 86400000), h = Math.floor(left % 86400000 / 3600000), m = Math.floor(left % 3600000 / 60000), s = Math.floor(left % 60000 / 1000); fields.days.textContent = String(d).padStart(2, '0'); fields.hours.textContent = String(h).padStart(2, '0'); fields.mins.textContent = String(m).padStart(2, '0'); fields.secs.textContent = String(s).padStart(2, '0'); if (!left) { label.textContent = copy().ended; clearInterval(interval); } }
     tick(); interval = setInterval(tick, 1000);
-    document.addEventListener('aqar:languagechange', function () { c = copy(); displayed = localized(item); setUnits(c.units); label.textContent = c.label; title.textContent = displayed.title ? displayed.title.textContent.trim() : ''; date.textContent = displayed.dateText; link.textContent = c.cta; link.href = displayed.title && displayed.title.querySelector('a') ? displayed.title.querySelector('a').href : 'auctions.html'; });
+    document.addEventListener('aqar:languagechange', function () { c = copy(); setUnits(c.units); renderDetails(); if (endAt <= Date.now()) label.textContent = c.ended; });
   })();
 
   /* Form validation + demo submit state */
@@ -355,7 +529,7 @@
    tap on an inactive row only activates it). */
 (function () {
   'use strict';
-  var sections = document.querySelectorAll('[data-services-editorial]');
+  var sections = document.querySelectorAll('[data-services-editorial]:not(.services-editorial--stack)');
   if (!sections.length) return;
   var mqWide = window.matchMedia('(min-width: 992px)');
   var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -436,6 +610,40 @@
   // the hidden language's copy has no layout until it is shown
   document.addEventListener('aqar:languagechange', onScroll);
   setMode();
+})();
+
+/* Homepage stacked service panels (.services-editorial--stack).
+   CSS pins each panel (position: sticky, >=992px, motion allowed); here scroll
+   progress of the next panel over the current one sets --stack-p (0..1), which
+   scales/fades the panel underneath. One rAF-throttled pass per scroll/resize. */
+(function () {
+  'use strict';
+  var lists = document.querySelectorAll('.services-editorial--stack .services-stack');
+  if (!lists.length) return;
+  var mq = window.matchMedia('(min-width: 992px) and (prefers-reduced-motion: no-preference)');
+  var queued = false;
+
+  function update() {
+    queued = false;
+    lists.forEach(function (list) {
+      var items = list.querySelectorAll('[data-stack-item]');
+      items.forEach(function (item, i) {
+        var card = item.firstElementChild;
+        var next = items[i + 1];
+        if (!mq.matches || !next || !list.offsetParent) { card.style.removeProperty('--stack-p'); return; }
+        // 0 while the next panel is a full panel-height below this one, 1 once it covers it
+        var gap = next.getBoundingClientRect().top - item.getBoundingClientRect().top;
+        var p = Math.min(1, Math.max(0, 1 - gap / item.offsetHeight));
+        card.style.setProperty('--stack-p', p.toFixed(4));
+      });
+    });
+  }
+  function queue() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  document.addEventListener('aqar:languagechange', queue);
+  if (mq.addEventListener) mq.addEventListener('change', queue); else mq.addListener(queue);
+  update();
 })();
 
 /* Journal items + property cards: subtle cursor parallax inside the hovered card's image.
