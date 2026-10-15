@@ -13,12 +13,13 @@
     var prev=root.querySelector(".carousel-prev"), next=root.querySelector(".carousel-next");
     var timer=null, hovered=false, focused=false, drag=false, moved=false, startX=0, startScroll=0;
     function isRTL(){return document.documentElement.dir==="rtl"}
-    function stepSize(){var s=track.querySelector(".carousel-slide");return s?s.getBoundingClientRect().width+20:track.clientWidth*.65}
+    function stepSize(){var s=track.querySelector(".carousel-slide");if(!s)return track.clientWidth*.65;var g=parseFloat(getComputedStyle(track).columnGap)||20;return s.getBoundingClientRect().width+g}
     function go(dir){
       var max=Math.max(0,track.scrollWidth-track.clientWidth);
       if(!max)return;
-      var amount=(isRTL()?-1:1)*dir*stepSize();
-      var nextPos=track.scrollLeft+amount;
+      // Snap to whole-card offsets so repeated steps never accumulate sub-pixel drift.
+      var step=stepSize(), sign=isRTL()?-1:1;
+      var nextPos=sign*(Math.round(Math.abs(track.scrollLeft)/step)+dir)*step;
       if(!isRTL() && nextPos>=max-2 && dir>0 && track.scrollLeft>=max-2) nextPos=0;
       else if(!isRTL() && nextPos<0 && track.scrollLeft<=2) nextPos=max;
       if(isRTL() && Math.abs(nextPos)>=max-2 && dir>0 && Math.abs(track.scrollLeft)>=max-2) nextPos=0;
