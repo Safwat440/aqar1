@@ -689,6 +689,11 @@
 }
 
 @media (min-width:1920px) {
+  .services-stack {
+   
+    max-width: 2000px;
+   
+}
   .process-journey__icon i {
     font-size: 1.3rem !important;
 }
@@ -781,8 +786,16 @@ span.eyebrow {
 		font-size: 1.06rem;
 	}
 }
-
+ 
+ 
+ 
 @media (min-width:2560px) {
+ 
+   .services-stack {
+   
+    max-width: 2200px;
+   
+}
   p {
     font-size: 1.5rem !important;
 }
@@ -891,4 +904,25 @@ span.eyebrow {
 
 .hero {
 	background-image: url("../images/hero.png");
+}
+
+
+ 
+ 
+/* Auctions + projects carousels — ~26% larger cards from 2500px (420 → 528). main.js sizes
+   --pc-w / --pc-vh / translateX from the viewport's clientWidth, so widening the
+   viewport (1320 → 1650) scales width, spacing and viewport height together;
+   card height follows aspect-ratio. Only the per-card cap is raised alongside. */
+@media (min-width:2500px) {
+	.section.prop-section--auctions .container,
+	.section.prop-section--projects .container,
+	.section.prop-section--auctions .prop-carousel__viewport,
+	.section.prop-section--projects .prop-carousel__viewport {
+		max-width: 1650px;
+	}
+
+	.section.prop-section--auctions .prop-card.prop-card--auction,
+	.section.prop-section--projects .prop-carousel__viewport > .prop-card.prop-card--project.is-center {
+		max-width: 528px;
+	}
 }
